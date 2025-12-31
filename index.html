@@ -3,370 +3,355 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>contentscoach</title>
 
   <style>
     :root{
       --bg:#0b0c10;
-      --panel:#0f1117;
+      --panel:rgba(255,255,255,.03);
+      --panel2:rgba(255,255,255,.02);
+      --border:rgba(255,255,255,.10);
+      --border2:rgba(255,255,255,.14);
       --text:#ffffff;
-      --muted:#c9c9d3;
-      --dim:#a7a7b3;
-      --line:rgba(255,255,255,.10);
-      --line2:rgba(255,255,255,.14);
-      --red:#ff3b3b;
-      --red2:rgba(255,59,59,.18);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --accent:#ff3b3b;
+      --accent2:rgba(255,59,59,.18);
       --green:#22c55e;
-      --green2:rgba(34,197,94,.10);
-      --radius:16px;
+      --green2:rgba(34,197,94,.12);
+      --radius:18px;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.65;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* soft gradients */
-    body:before{
-      content:"";
-      position:fixed;
-      inset:-20%;
+      font-family:-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo","Noto Sans KR", sans-serif;
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,59,59,.10), transparent 60%),
-        radial-gradient(700px 480px at 85% 30%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(800px 520px at 60% 95%, rgba(255,59,59,.06), transparent 60%);
-      pointer-events:none;
-      z-index:0;
+        radial-gradient(900px 540px at 20% -10%, rgba(255,59,59,.18), transparent 55%),
+        radial-gradient(900px 540px at 110% 15%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(700px 520px at 40% 80%, rgba(255,59,59,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      letter-spacing:-0.2px;
     }
 
     .wrap{
-      position:relative;
-      z-index:1;
-      max-width:760px;
+      max-width:820px;
       margin:0 auto;
-      padding:26px 20px 84px;
+      padding:28px 18px 90px;
     }
 
-    .divider{
-      height:1px;
-      background:var(--line);
-      margin:34px 0;
-    }
-
-    .pill{
+    .badge{
       display:inline-flex;
       align-items:center;
       gap:8px;
       padding:10px 14px;
-      font-size:13px;
-      color:#e7e7ee;
-      border:1px solid var(--line2);
-      background:rgba(255,255,255,.03);
       border-radius:999px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.12);
+      color:rgba(255,255,255,.80);
+      font-size:13px;
       margin-bottom:18px;
+      backdrop-filter: blur(8px);
+    }
+    .badge:before{
+      content:"";
+      width:7px;height:7px;border-radius:999px;
+      background:rgba(255,255,255,.35);
+      box-shadow:0 0 0 4px rgba(255,255,255,.06);
     }
 
-    .section{
-      margin-top:62px;
-    }
+    section{margin:0 0 64px}
 
-    .kicker{
-      font-size:14px;
-      color:#e7e7ee;
-      font-weight:800;
-      letter-spacing:.2px;
-      margin:0 0 12px;
-    }
-
-    h1,h2{
-      margin:0;
-      letter-spacing:-.4px;
-    }
-
-    h1{
-      font-size:42px;
-      line-height:1.18;
-      font-weight:900;
-      margin-top:18px;
-      margin-bottom:18px;
-    }
-
-    h2{
+    .h1{
       font-size:28px;
       line-height:1.25;
+      margin:0 0 18px;
       font-weight:900;
-      margin-bottom:16px;
+    }
+    .h2{
+      font-size:24px;
+      line-height:1.25;
+      margin:0 0 18px;
+      font-weight:900;
+    }
+    .h3{
+      font-size:18px;
+      margin:0 0 10px;
+      font-weight:900;
     }
 
-    .p{
+    p{
       margin:0 0 14px;
-      font-size:17px;
       color:var(--muted);
+      font-size:16px;
+      white-space:pre-line;
     }
-
-    .p strong{
-      color:var(--text);
-      font-weight:900;
-    }
-
-    .lead{
-      font-size:19px;
-      color:#e9e9f2;
-      font-weight:800;
-      margin:0 0 12px;
-    }
-
-    .bigQuote{
-      margin-top:30px;
-      font-size:44px;
-      line-height:1.12;
-      font-weight:950;
-      letter-spacing:-.6px;
-      color:var(--text);
-    }
-
-    .mutedNote{
+    .strong{color:var(--text); font-weight:900}
+    .muted{color:var(--muted2)}
+    .quote{
       margin-top:10px;
-      font-size:13px;
-      color:rgba(255,255,255,.60);
+      padding-left:14px;
+      border-left:3px solid rgba(255,255,255,.16);
+      color:rgba(255,255,255,.82);
+      font-weight:800;
+    }
+
+    .heroTitle{
+      font-size:22px;
+      line-height:1.35;
+      font-weight:900;
+      margin:0 0 16px;
+      color:var(--text);
+    }
+
+    .bigLine{
+      font-size:42px;
+      line-height:1.05;
+      margin:26px 0 18px;
+      font-weight:1000;
+      letter-spacing:-0.8px;
+    }
+    @media (max-width:420px){
+      .bigLine{font-size:38px}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:22px 0;
     }
 
     .ctaRow{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:10px;
       margin-top:18px;
     }
-    .btn{
-      flex:1;
-      min-width:140px;
-      padding:18px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      text-align:center;
-      font-weight:900;
-      letter-spacing:-.2px;
-      border:1px solid var(--line2);
-      background:rgba(255,255,255,.04);
-      color:#f1f1f7;
-    }
-    .btn.primary{
-      background:var(--red);
-      border-color:rgba(255,59,59,.55);
-      color:#fff;
-      box-shadow:0 16px 40px rgba(255,59,59,.14);
-    }
-    .btn.outline{
-      background:transparent;
-      border-color:rgba(255,59,59,.55);
-      color:var(--red);
-    }
-    .btn.dark{
-      background:rgba(255,255,255,.03);
-      border-color:rgba(255,255,255,.12);
-      color:#d7d7e2;
+    @media (max-width:640px){
+      .ctaRow{grid-template-columns:1fr 1fr}
+      .ctaRow .cta.full{grid-column:1 / -1}
     }
 
-    .btn.full{
-      width:100%;
-      min-width:0;
-      padding:20px 18px;
-      border-radius:16px;
-      font-size:18px;
+    .cta{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      padding:16px 14px;
+      border-radius:14px;
+      font-weight:1000;
+      letter-spacing:-0.2px;
+      user-select:none;
+      transition:transform .06s ease, filter .15s ease;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      color:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+    }
+    .cta:active{transform:scale(.99)}
+    .cta.primary{
+      background:linear-gradient(180deg, rgba(255,59,59,1), rgba(255,59,59,.92));
+      border-color:rgba(255,59,59,.7);
+      color:#fff;
+      box-shadow:0 16px 40px rgba(255,59,59,.18);
+    }
+    .cta.outline{
+      background:rgba(255,255,255,.02);
+      border-color:rgba(255,59,59,.55);
+      color:rgba(255,59,59,1);
+    }
+    .cta.ghost{
+      background:rgba(255,255,255,.02);
+      border-color:rgba(255,255,255,.12);
+      color:rgba(255,255,255,.85);
     }
 
     .profile{
-      display:flex;
-      gap:16px;
+      display:grid;
+      grid-template-columns:92px 1fr;
+      gap:14px;
       align-items:center;
-      margin-top:22px;
-      margin-bottom:10px;
-    }
-    .avatar{
-      width:110px;
-      height:110px;
+      margin-top:18px;
+      padding:14px;
       border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.22);
+    }
+    .profile img{
+      width:92px; height:92px;
+      border-radius:16px;
       object-fit:cover;
-      border:1px solid var(--line2);
-      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
     }
-    .profileText{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-    }
-    .profileText .name{
-      display:block;
+    .profile .name{
+      font-weight:1000;
       font-size:18px;
-      font-weight:950;
+      margin:0 0 4px;
       color:#fff;
-      margin-bottom:4px;
     }
-
-    .proofImg{
-      width:100%;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      display:block;
-    }
-    .proofStack{display:grid; gap:14px; margin-top:18px;}
-    .caption{
+    .profile .meta{
+      margin:0;
       font-size:14px;
       color:rgba(255,255,255,.70);
-      margin-top:14px;
+      line-height:1.45;
     }
 
-    .bullet{
-      margin:0;
+    .img{
+      width:100%;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      display:block;
+      background:rgba(255,255,255,.03);
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+    }
+    .img + .img{margin-top:14px}
+
+    .list{
+      margin:10px 0 0;
       padding:0;
       list-style:none;
       display:grid;
       gap:10px;
-      color:var(--muted);
-      font-size:17px;
     }
-    .bullet li{
-      padding-left:14px;
-      position:relative;
+    .list li{
+      display:flex;
+      gap:10px;
+      color:rgba(255,255,255,.72);
+      font-size:16px;
     }
-    .bullet li:before{
-      content:"•";
-      position:absolute;
-      left:0;
-      top:0;
-      color:#e8e8f2;
-      opacity:.9;
+    .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:rgba(255,255,255,.25);
+      margin-top:10px;
+      flex:0 0 auto;
     }
 
-    .card{
-      border:1px solid var(--line2);
+    .callout{
+      margin-top:18px;
+      padding:16px;
       border-radius:18px;
-      background:rgba(255,255,255,.03);
-      padding:18px;
+      background:rgba(255,59,59,.08);
+      border:1px solid rgba(255,59,59,.20);
+      color:rgba(255,255,255,.86);
     }
+    .callout .strong{display:block; margin-bottom:6px}
 
-    .priceGrid{
-      display:grid;
-      gap:14px;
+    .priceWrap{
       margin-top:16px;
+      display:grid;
+      gap:12px;
     }
-
     .priceCard{
-      border:1px solid var(--line2);
       border-radius:18px;
-      background:rgba(0,0,0,.16);
       padding:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.20);
     }
     .priceCard.reco{
       border-color:rgba(255,59,59,.55);
       box-shadow:0 18px 50px rgba(255,59,59,.10);
-      background:
-        linear-gradient(180deg, rgba(255,59,59,.08), rgba(0,0,0,.16));
+      background:linear-gradient(180deg, rgba(255,59,59,.10), rgba(0,0,0,.20));
     }
-    .tag{
+    .pill{
       display:inline-flex;
+      align-items:center;
+      gap:8px;
       padding:8px 12px;
       border-radius:999px;
-      font-size:12px;
-      font-weight:950;
-      background:rgba(255,59,59,.14);
-      border:1px solid rgba(255,59,59,.30);
-      color:#ffecec;
-      margin-bottom:10px;
+      font-size:13px;
+      font-weight:1000;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      color:rgba(255,255,255,.82);
+      margin-bottom:12px;
     }
+    .pill.red{
+      border-color:rgba(255,59,59,.35);
+      background:rgba(255,59,59,.12);
+      color:rgba(255,235,235,.92);
+    }
+
     .priceTop{
       display:flex;
+      align-items:baseline;
       justify-content:space-between;
-      align-items:flex-end;
       gap:12px;
       margin-bottom:10px;
+      flex-wrap:wrap;
     }
-    .priceNum{
-      font-size:32px;
-      font-weight:950;
-      letter-spacing:-.5px;
-      margin:0;
+    .price{
+      font-size:40px;
+      line-height:1;
+      font-weight:1100;
+      color:#fff;
+      letter-spacing:-1px;
     }
     .freq{
       font-size:14px;
-      color:rgba(255,255,255,.70);
-      margin:0;
+      color:rgba(255,255,255,.65);
       font-weight:800;
     }
     .priceTitle{
       font-size:18px;
-      font-weight:950;
+      font-weight:1000;
       margin:0 0 10px;
       color:#fff;
     }
     .priceDesc{
       margin:0;
-      color:rgba(255,255,255,.70);
       font-size:15px;
+      color:rgba(255,255,255,.62);
+      line-height:1.65;
+      white-space:pre-line;
+    }
+
+    .vat{
+      margin-top:14px;
+      font-size:13px;
+      color:rgba(255,255,255,.55);
     }
 
     .refund{
-      border:1px solid rgba(34,197,94,.45);
-      background:var(--green2);
       border-radius:18px;
       padding:18px;
+      border:1px solid rgba(34,197,94,.35);
+      background:linear-gradient(180deg, rgba(34,197,94,.14), rgba(0,0,0,.18));
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
     }
-    .refund h3{
+    .refund .title{
+      font-size:22px;
+      font-weight:1100;
       margin:0 0 12px;
-      font-size:20px;
-      font-weight:950;
       color:#eafff2;
-      letter-spacing:-.2px;
+      line-height:1.2;
     }
     .refund p{
-      margin:0 0 10px;
-      color:#c8f7d8;
-      font-weight:800;
+      color:rgba(234,255,242,.82);
+      font-weight:700;
     }
-    .refund .strong{
-      margin:0;
+    .refund .lineStrong{
       color:#fff;
-      font-weight:950;
+      font-weight:1100;
     }
 
-    .career{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-      color:#e9e9f2;
-      font-size:16px;
-      opacity:.95;
-    }
-    .career li{
-      color:#e9e9f2;
-      opacity:.95;
-    }
-
-    footer{
-      margin-top:44px;
+    .footer{
+      margin-top:70px;
       padding-top:22px;
-      border-top:1px solid var(--line);
-      color:rgba(255,255,255,.45);
-      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.40);
+      font-size:13px;
       text-align:center;
-      line-height:1.55;
-    }
-
-    /* mobile tune */
-    @media (max-width:420px){
-      h1{font-size:38px}
-      .bigQuote{font-size:40px}
-      .btn{min-width:120px}
     }
   </style>
 </head>
@@ -374,339 +359,309 @@
 <body>
   <main class="wrap">
 
-    <div class="pill">헬스장·PT샵·필라테스 대표 전용</div>
+    <div class="badge">헬스장·PT샵·필라테스 대표 전용</div>
 
     <!-- HERO -->
-    <section class="section" style="margin-top:8px;">
-      <p class="lead">헬스장·PT샵·필라테스 대표님,</p>
+    <section>
+      <p class="heroTitle strong">헬스장·PT샵·필라테스 대표님,</p>
 
-      <p class="p" style="font-size:20px; color:#f1f1f7; font-weight:900;">
-        대표님 블로그 글을 읽고<br>
-        이미 <strong>‘이 센터로 결정하고’</strong> 오는 회원이 있습니다.
-      </p>
+      <p class="strong">
+대표님 블로그 글을 읽고
+이미 ‘이 센터로 결정하고’ 오는 회원이 있습니다.
 
-      <p class="p" style="color:#e9e9f2; font-weight:900;">
-        그 회원은<br>
-        가격을 묻지 않습니다.<br>
-        비교도 하지 않습니다.
-      </p>
+그 회원은
+가격을 묻지 않습니다.
+비교도 하지 않습니다.
 
-      <p class="p" style="color:#e9e9f2; font-weight:900;">
-        이미 마음속에서<br>
-        결정이 끝난 상태로<br>
-        센터를 방문합니다.
-      </p>
+이미 마음속에서
+결정이 끝난 상태로
+센터를 방문합니다.</p>
 
-      <p class="p" style="margin-top:18px; color:#e9e9f2; font-weight:900;">
-        그런데 문제는,<br>
-        그런 회원을 만들어내는 센터가<br>
-        생각보다 많지 않다는 겁니다.
-      </p>
+      <p class="strong">
+그런데 문제는,
+그런 회원을 만들어내는 센터가
+생각보다 많지 않다는 겁니다.</p>
 
-      <h1 style="margin-top:34px;">
-        수업 잘하는 것과,<br>
-        매출 나는 건 다릅니다.
-      </h1>
+      <div class="bigLine">수업 잘하는 것과,<br>매출 나는 건 다릅니다.</div>
 
-      <p class="p">
-        김주영 코치는<br>
-        <strong>한국체육대학교 학사·석사</strong>,<br>
-        <strong>현장 15년</strong>.
-      </p>
+      <p class="strong">
+김주영 코치는
+한국체육대학교 학사·석사,
+현장 15년.</p>
 
-      <p class="p">
-        <strong>3천 명 데이터를 직접 다루며</strong><br>
-        <strong>“왜 결제가 되는지”</strong>를<br>
-        구조로 만들어온 사람입니다.
-      </p>
+      <p class="strong">
+3천 명 데이터를 직접 다루며
+“왜 결제가 되는지”를
+구조로 만들어온 사람입니다.</p>
 
-      <p class="p" style="margin-top:18px;">
-        대표님 센터 블로그를<br>
-        상위에 올리는 것부터 시작해,
-      </p>
+      <p class="strong">
+대표님 센터 블로그를
+상위에 올리는 것부터 시작해,</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        회원이 가격을 묻기 전에<br>
-        이미 <strong>‘이 센터여야 하는 이유’</strong>가<br>
-        머릿속에 만들어지게 하는 글만 작성합니다.
-      </p>
+      <p class="strong">
+회원이 가격을 묻기 전에
+이미 ‘이 센터여야 하는 이유’가
+머릿속에 만들어지게 하는 글만 작성합니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:900; margin-top:16px;">
-        이 글을 읽고 계신 대표님은<br>
-        이미 다른 마케팅과<br>
-        무엇이 다른지 느끼고 계실 겁니다.
-      </p>
-
-      <p class="mutedNote">※ 지역 독점은 선착순으로 적용됩니다.</p>
+      <p class="strong">
+이 글을 읽고 계신 대표님은
+이미 다른 마케팅과
+무엇이 다른지 느끼고 계실 겁니다.</p>
 
       <div class="profile">
-        <img class="avatar" src="me.png" alt="김주영 코치" />
-        <div class="profileText">
-          <span class="name">김주영 코치</span>
-          한국체육대학교 학사·석사<br>
-          생체역학 전공 · 현장 15년
+        <img src="me.png" alt="김주영 코치" loading="lazy" decoding="async">
+        <div>
+          <div class="name">김주영 코치</div>
+          <p class="meta">한국체육대학교 학사·석사<br>생체역학 전공 · 현장 15년</p>
         </div>
       </div>
 
+      <p class="vat">※ 지역 독점은 선착순으로 적용됩니다.</p>
+
       <div class="ctaRow">
-        <a class="btn primary" href="tel:01075790239">전화 문의</a>
-        <a class="btn outline" href="sms:01075790239">문자 문의</a>
-        <a class="btn dark" href="https://open.kakao.com/o/szijpW8h">카톡 문의</a>
+        <a class="cta primary" href="tel:01075790239">전화 문의</a>
+        <a class="cta outline" href="sms:01075790239">문자 문의</a>
+        <a class="cta ghost full" href="https://open.kakao.com/o/szijpW8h">카톡 문의</a>
       </div>
     </section>
 
     <!-- PROOF ① -->
-    <section class="section">
-      <h2>검색 결과가 증명합니다.</h2>
+    <section>
+      <div class="h2">검색 결과가 증명합니다.</div>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        작업 시작 7일 만에,<br>
-        단 <strong>7개 포스팅</strong>으로<br>
-        <strong>13개 키워드</strong>를 상위에 올렸습니다.
-      </p>
+      <div class="card">
+        <p class="strong" style="margin-bottom:10px;">
+작업 시작 7일 만에,
+단 7개 포스팅으로
+13개 키워드를 상위에 올렸습니다.</p>
 
-      <p class="p">
-        2025년 4월 기준 캡쳐.<br>
-        우연이 아니라,<br>
-        <strong>의도적으로 설계한 구조의 결과입니다.</strong>
-      </p>
+        <p class="strong">
+2025년 4월 기준 캡쳐.
+우연이 아니라,
+의도적으로 설계한 구조의 결과입니다.</p>
 
-      <p class="p">
-        센터 블로그 상태를 먼저 진단한 뒤,<br>
-        노출 가능한 키워드만 선별해<br>
-        설계한 결과입니다.
-      </p>
+        <p class="strong">
+센터 블로그 상태를 먼저 진단한 뒤,
+노출 가능한 키워드만 선별해
+설계한 결과입니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950; margin-top:18px;">
-        이 단계의 목적은<br>
-        매출 폭발이 아닙니다.
-      </p>
+        <div class="divider"></div>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        <strong>“이 동네에 이런 센터가 있다”</strong>는 인식을<br>
-        검색 사용자 머릿속에<br>
-        반복 노출로 각인시키는 단계입니다.
-      </p>
+        <p class="strong" style="margin-bottom:10px;">이 단계의 목적은<br>매출 폭발이 아닙니다.</p>
+        <p class="quote">“이 동네에 이런 센터가 있다”는 인식을<br>검색 사용자 머릿속에<br>반복 노출로 각인시키는 단계입니다.</p>
+      </div>
 
-      <div class="proofStack">
-        <img class="proofImg" src="proof-13-1.png" alt="proof 1" />
-        <img class="proofImg" src="proof-13-2.png" alt="proof 2" />
+      <div style="margin-top:18px">
+        <img class="img" src="proof-13-1.png" alt="상위 노출 증거 1" loading="lazy" decoding="async">
+        <img class="img" src="proof-13-2.png" alt="상위 노출 증거 2" loading="lazy" decoding="async">
       </div>
     </section>
 
     <!-- PROOF ② -->
-    <section class="section">
-      <p class="p" style="color:#e9e9f2; font-weight:950; font-size:20px;">
-        2025년 9월,<br>
-        이 구조는 <strong>‘장악’</strong> 단계로 갑니다.
-      </p>
+    <section>
+      <div class="card">
+        <p class="strong" style="margin-bottom:10px;">
+2025년 9월,
+이 구조는 ‘장악’ 단계로 갑니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:900;">
-        상단 2~3개 슬롯 동시 점유.<br>
-        같은 키워드를 검색해도<br>
-        대표님 센터 말고는 보이지 않게 만듭니다.
-      </p>
+        <p class="strong">
+상단 2~3개 슬롯 동시 점유.
+같은 키워드를 검색해도
+대표님 센터 말고는 보이지 않게 만듭니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950; margin-top:12px;">
-        이 지점부터는<br>
-        고객이 비교하지 않습니다.
-      </p>
+        <p class="strong">
+이 지점부터는
+고객이 비교하지 않습니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        검색 = 대표님 센터가 됩니다.
-      </p>
+        <p class="strong">검색 = 대표님 센터가 됩니다.</p>
 
-      <div class="proofStack">
-        <img class="proofImg" src="proof-keyword.png" alt="keyword proof" />
+        <img class="img" src="proof-keyword.png" alt="장악 단계 예시" loading="lazy" decoding="async" style="margin-top:14px">
+
+        <div class="callout">
+          <span class="strong">지금 문의하지 않으면,</span>
+          이 지역 키워드 장악은<br>옆 센터가 가져갑니다.
+        </div>
+
+        <div style="margin-top:14px">
+          <a class="cta primary" href="https://open.kakao.com/o/szijpW8h">내 상권도 확인하기</a>
+        </div>
       </div>
-
-      <p class="p" style="color:#e9e9f2; font-weight:950; margin-top:18px;">
-        지금 문의하지 않으면,<br>
-        이 지역 키워드 장악은<br>
-        옆 센터가 가져갑니다.
-      </p>
-
-      <a class="btn primary full" href="https://open.kakao.com/o/szijpW8h">내 상권도 확인하기</a>
     </section>
 
-    <!-- TRUST / OPERATION -->
-    <section class="section">
-      <h2>직접 운영해본 사람만 압니다.</h2>
-      <ul class="bullet">
-        <li>PT샵 6년 직접 운영</li>
-        <li>월 순수익 최대 3천만 원 구조 경험</li>
-        <li>광고가 아니라 ‘검색 유입 → 상담 → 결제’로 만든 매출</li>
+    <!-- TRUST -->
+    <section>
+      <div class="h2">직접 운영해본 사람만 압니다.</div>
+
+      <ul class="list">
+        <li><span class="dot"></span><span class="strong">PT샵 6년 직접 운영</span></li>
+        <li><span class="dot"></span><span class="strong">월 순수익 최대 3천만 원 구조 경험</span></li>
+        <li><span class="dot"></span><span class="strong">광고가 아니라 ‘검색 유입 → 상담 → 결제’로 만든 매출</span></li>
       </ul>
 
-      <p class="p" style="margin-top:18px; color:#e9e9f2; font-weight:950;">
-        그래서 저는<br>
-        “노출만 되는 글”이 아니라<br>
-        “상담 성공률이 달라지는 글”을 씁니다.
-      </p>
+      <div class="divider"></div>
+
+      <p class="strong">그래서 저는</p>
+      <p class="strong">“노출만 되는 글”이 아니라<br>“상담 성공률이 달라지는 글”을 씁니다.</p>
     </section>
 
     <!-- PAIN -->
-    <section class="section">
-      <h2>상담 회원이 “비싸다”고 말한다면,<br>이미 진 겁니다.</h2>
+    <section>
+      <div class="h2">상담 회원이 “비싸다”고 말한다면,<br>이미 진 겁니다.</div>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        가격 문제가 아닙니다.<br>
-        전문성이 전달되지 않은 겁니다.
-      </p>
+      <p class="strong">가격 문제가 아닙니다.<br>전문성이 전달되지 않은 겁니다.</p>
 
-      <p class="p">
-        체험단, 직원, 대행사가 쓴<br>
-        의미 없는 정보 글 하나가<br>
-        대표님의 커리어를<br>
-        ‘동네 센터’로 만들어버립니다.
-      </p>
+      <p class="strong">
+체험단, 직원, 대행사가 쓴
+의미 없는 정보 글 하나가
+대표님의 커리어를
+‘동네 센터’로 만들어버립니다.</p>
 
-      <p class="p">
-        그래서 상담 자리에서<br>
-        대표님은 설명하고, 설득하고,<br>
-        결국 할인하게 됩니다.
-      </p>
+      <p class="strong">
+그래서 상담 자리에서
+대표님은 설명하고, 설득하고,
+결국 할인하게 됩니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950; margin-top:18px;">
-        김주영 코치의 글은 다릅니다.
-      </p>
+      <div class="divider"></div>
 
-      <p class="p" style="color:#e9e9f2; font-weight:900;">
-        왜 이 통증이 생겼는지,<br>
-        왜 이 방식이 필요한지,<br>
-        왜 여기서 해결되는지를
-      </p>
+      <p class="strong">김주영 코치의 글은 다릅니다.</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        논문과 실제 데이터로<br>
-        회원 스스로 판단할 수 있게 만듭니다.
-      </p>
+      <p class="strong">
+왜 이 통증이 생겼는지,
+왜 이 방식이 필요한지,
+왜 여기서 해결되는지를</p>
 
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        그래서 이 글을 읽고 온 회원은<br>
-        상담에서 가격부터 묻지 않습니다.
-      </p>
+      <p class="strong">
+논문과 실제 데이터로
+회원 스스로 판단할 수 있게 만듭니다.</p>
 
-      <a class="btn primary full" href="https://open.kakao.com/o/szijpW8h">상담 프리패스 글쓰기 문의</a>
+      <p class="strong">
+그래서 이 글을 읽고 온 회원은
+상담에서 가격부터 묻지 않습니다.</p>
+
+      <div style="margin-top:14px">
+        <a class="cta primary" href="https://open.kakao.com/o/szijpW8h">상담 프리패스 글쓰기 문의</a>
+      </div>
     </section>
 
     <!-- CAREER -->
-    <section class="section">
-      <h2 style="letter-spacing:.2px;">CAREER</h2>
-      <ul class="career">
-        <li>-한국체육대학교 학사·석사 (전공:생체역학)</li>
-        <li>-한국체육대학교 Motion Innovation Center 연구보조</li>
-        <li>(보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여)</li>
-        <li>-KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</li>
-        <li>-15년간 3천명 이상의 현장 경험과 연구 데이터 융합</li>
-        <li>-호텔신라 Advance Personal Trainer</li>
-        <li>-삼성엔지니어링·삼성물산 임원 전담 트레이닝</li>
-        <li>-TPI Korea 창립 멤버</li>
-        <li>-2014 World Golf Fitness Summit 한국 대표</li>
-        <li>-KPGA·KLPGA 프로골퍼 다수 트레이닝</li>
-      </ul>
+    <section>
+      <div class="h2">CAREER</div>
+      <div class="card">
+        <p class="strong" style="margin-bottom:10px">-한국체육대학교 학사·석사 (전공:생체역학)</p>
+        <p class="strong" style="margin-bottom:10px">-한국체육대학교 Motion Innovation Center 연구보조</p>
+        <p class="strong" style="margin-bottom:10px">(보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여)</p>
+        <p class="strong" style="margin-bottom:10px">-KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</p>
+        <p class="strong" style="margin-bottom:10px">-15년간 3천명 이상의 현장 경험과 연구 데이터 융합</p>
+        <p class="strong" style="margin-bottom:10px">-호텔신라 Advance Personal Trainer</p>
+        <p class="strong" style="margin-bottom:10px">-삼성엔지니어링·삼성물산 임원 전담 트레이닝</p>
+        <p class="strong" style="margin-bottom:10px">-TPI Korea 창립 멤버</p>
+        <p class="strong" style="margin-bottom:10px">-2014 World Golf Fitness Summit 한국 대표</p>
+        <p class="strong" style="margin-bottom:0">-KPGA·KLPGA 프로골퍼 다수 트레이닝</p>
 
-      <p class="p" style="margin-top:20px; color:#e9e9f2; font-weight:950;">
-        그래서 저는<br>
-        의미 없는 정보 글이 아니라,<br>
-        회원이 가격을 납득하는 글을 씁니다.
-      </p>
+        <div class="divider"></div>
+
+        <p class="strong" style="margin:0">
+그래서 저는
+의미 없는 정보 글이 아니라,
+회원이 가격을 납득하는 글을 씁니다.</p>
+      </div>
     </section>
 
     <!-- SYSTEM -->
-    <section class="section">
-      <h2>대표님은 수업만 하세요.</h2>
-      <p class="p">
-        상권 분석, 키워드 선정, 기획과 집필까지<br>
-        전부 김주영 코치가 합니다.
-      </p>
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        대표님이 하실 일은 복사 → 붙여넣기, 3분이면 됩니다.
-      </p>
-      <p class="p">
-        밤 11시에 블로그 쓰는 시간,<br>
-        대표님 시급으로 계산해보면<br>
-        이 선택이 훨씬 싸다는 걸 곧바로 알게 됩니다.
-      </p>
+    <section>
+      <div class="h2">대표님은 수업만 하세요.</div>
+      <div class="card">
+        <p class="strong">상권 분석, 키워드 선정, 기획과 집필까지 전부 김주영 코치가 합니다.</p>
+        <p class="strong">대표님이 하실 일은 복사 → 붙여넣기, 3분이면 됩니다.</p>
+        <p class="strong" style="margin-bottom:0">
+밤 11시에 블로그 쓰는 시간,
+대표님 시급으로 계산해보면
+이 선택이 훨씬 싸다는 걸 곧바로 알게 됩니다.</p>
+      </div>
     </section>
 
     <!-- PRICE -->
-    <section class="section">
-      <h2>가격</h2>
-      <p class="p" style="color:#e9e9f2; font-weight:950;">
-        ※ 이 가격은 ‘글 개수’가 아니라<br>
-        지역 키워드를 점유하는 비용입니다.
-      </p>
+    <section>
+      <div class="h2">가격</div>
+      <p class="strong">※ 이 가격은 ‘글 개수’가 아니라,<br>지역 키워드를 점유하는 비용입니다.</p>
 
-      <div class="priceGrid">
+      <div class="priceWrap">
         <div class="priceCard reco">
-          <div class="tag">상권 장악의 최소 기준</div>
+          <div class="pill red">상권 장악의 최소 기준</div>
+
           <div class="priceTop">
-            <p class="priceNum">59만 원</p>
-            <p class="freq">주 3회 발행</p>
+            <div class="price">59만 원</div>
+            <div class="freq">주 3회 발행</div>
           </div>
-          <p class="priceTitle">상위 노출 구조를 만드는 단계</p>
+
+          <div class="priceTitle">상위 노출 구조를 만드는 단계</div>
+
           <p class="priceDesc">
-            네이버 검색 1페이지에 대표님 센터 글이<br>
-            2개 이상 동시에 노출될 확률을 만드는 구간.<br>
-            옆 센터로 갈 문의 2건 중 1건을 가져오는 구조가 여기서 만들어집니다.<br>
-            문의가 ‘생기기 시작’하는 단계입니다.
-          </p>
+네이버 검색 1페이지에 대표님 센터 글이
+2개 이상 동시에 노출될 확률을 만드는 구간.
+옆 센터로 갈 문의 2건 중 1건을 가져오는 구조가
+여기서 만들어집니다.
+
+문의가 ‘생기기 시작’하는 단계입니다.</p>
         </div>
 
         <div class="priceCard">
           <div class="priceTop">
-            <p class="priceNum">99만 원</p>
-            <p class="freq">주 5회 발행 (지역 독점)</p>
+            <div class="price">99만 원</div>
+            <div class="freq">주 5회 발행 (지역 독점)</div>
           </div>
-          <p class="priceTitle">경쟁 업체 차단 및 상권 완벽 독점</p>
+
+          <div class="priceTitle">경쟁 업체 차단 및 상권 완벽 독점</div>
+
           <p class="priceDesc">
-            같은 동네, 같은 키워드군 의뢰는 추가로 받지 않습니다.<br>
-            어떤 키워드를 검색해도 대표님 센터만 보이게 만들어 비교 자체를 없애는 단계.<br>
-            사실상 해당 지역 마케팅 직원을 월 100만 원에 채용하는 효과입니다.<br><br>
-            한 동네, 한 센터만 남깁니다.
-          </p>
+같은 동네, 같은 키워드군 의뢰는 추가로 받지 않습니다.
+어떤 키워드를 검색해도 대표님 센터만 보이게 만들어
+비교 자체를 없애는 단계.
+
+사실상 해당 지역 마케팅 직원을
+월 100만 원에 채용하는 효과입니다.
+
+한 동네, 한 센터만 남깁니다.</p>
         </div>
       </div>
 
-      <p class="p" style="margin-top:18px; color:#e9e9f2; font-weight:950;">
-        여기까지 보셨다면,<br>
-        왜 이 구조가 저단가로 팔릴 수 없는지<br>
-        이미 이해하셨을 겁니다.
-      </p>
+      <p class="strong" style="margin-top:18px">
+여기까지 보셨다면,
+왜 이 구조가 저단가로 팔릴 수 없는지
+이미 이해하셨을 겁니다.</p>
 
-      <p class="mutedNote">※ VAT 별도 / 현금영수증 발행 가능</p>
+      <p class="vat">※ VAT 별도 / 현금영수증 발행 가능</p>
     </section>
 
     <!-- REFUND -->
-    <section class="section">
-      <h2>환불 보장</h2>
+    <section>
+      <div class="h2">환불 보장</div>
       <div class="refund">
-        <h3>첫 원고 확인 후<br>불만족 시 <span style="font-weight:950;color:#fff;">100% 환불해 드립니다.</span></h3>
-        <p>이런 제안,<br>결과에 자신 없으면 절대 못 합니다.</p>
-        <p class="strong">판단은 대표님이 하시면 됩니다.<br>리스크는 제가 가져갑니다.<br>결과로 증명하겠습니다.</p>
+        <div class="title">첫 원고 확인 후<br>불만족 시 <span class="lineStrong">100% 환불</span>해 드립니다.</div>
+        <p class="strong">이런 제안, 결과에 자신 없으면 절대 못 합니다.</p>
+        <p class="strong" style="margin-bottom:0">
+판단은 대표님이 하시면 됩니다.<br>
+리스크는 제가 가져갑니다.<br>
+결과로 증명하겠습니다.</p>
       </div>
     </section>
 
     <!-- FINAL -->
-    <section class="section">
-      <h2 style="font-size:40px;">한 동네,<br>한 센터만 됩니다.</h2>
-      <p class="p" style="color:#e9e9f2; font-weight:900;">
-        옆 센터가 먼저 선점하면<br>
-        대표님 차례는 없습니다.
-      </p>
+    <section>
+      <div class="bigLine">한 동네,<br>한 센터만 됩니다.</div>
+      <p class="strong">옆 센터가 먼저 선점하면<br>대표님 차례는 없습니다.</p>
 
-      <div class="ctaRow" style="margin-top:18px;">
-        <a class="btn primary" href="tel:01075790239">전화 문의</a>
-        <a class="btn outline" href="sms:01075790239">문자 문의</a>
-        <a class="btn dark" href="https://open.kakao.com/o/szijpW8h">OO동 독점권 선점하기</a>
+      <div class="ctaRow">
+        <a class="cta primary" href="tel:01075790239">전화 문의</a>
+        <a class="cta outline" href="sms:01075790239">문자 문의</a>
+        <a class="cta ghost full" href="https://open.kakao.com/o/szijpW8h">OO동 독점권 선점하기</a>
+      </div>
+
+      <div class="footer">
+        본 페이지는 마케팅 정보 제공 목적입니다.<br>
+        검색 결과는 시점·지역·플랫폼 정책에 따라 달라질 수 있습니다.
       </div>
     </section>
-
-    <footer>
-      본 페이지는 마케팅 정보 제공 목적입니다.<br>
-      검색 결과는 시점·지역·플랫폼 정책에 따라 달라질 수 있습니다.
-    </footer>
 
   </main>
 </body>
