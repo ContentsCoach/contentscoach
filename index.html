@@ -1,447 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>지역 독점 블로그로 상담을 먼저 만들기</title>
-
-<style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-  background:#0f0f12;
-  color:#fff;
-  line-height:1.6;
-}
-.container{
-  max-width:720px;
-  margin:0 auto;
-  padding:40px 20px 80px;
-}
-section{margin-bottom:80px}
-h1{font-size:34px;line-height:1.25;margin-bottom:20px}
-h2{font-size:26px;margin-bottom:16px}
-p{font-size:16px;color:#cfcfd8;margin-bottom:14px}
-.strong{color:#fff;font-weight:800}
-.badge{
-  display:inline-block;
-  font-size:13px;
-  padding:6px 12px;
-  border:1px solid #333;
-  border-radius:999px;
-  margin-bottom:12px;
-  color:#ddd;
-}
-.ctaRow{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:24px;
-}
-.cta{
-  flex:1;
-  text-align:center;
-  padding:16px;
-  background:#ff3b3b;
-  color:#fff;
-  font-weight:800;
-  border-radius:10px;
-  text-decoration:none;
-}
-.cta.alt{
-  background:transparent;
-  border:1px solid #ff3b3b;
-  color:#ff3b3b;
-}
-.cta.ghost{
-  background:transparent;
-  border:1px solid #333;
-  color:#ddd;
-}
-img{
-  width:100%;
-  border-radius:12px;
-}
-.profile{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  margin-top:32px;
-}
-.profile img{
-  width:96px;
-  border-radius:14px;
-  border:1px solid #333;
-}
-.profileText{
-  font-size:14px;
-  color:#cfcfd8;
-  line-height:1.4;
-}
-.footer{
-  border-top:1px solid #333;
-  padding-top:24px;
-  font-size:13px;
-  color:#888;
-  text-align:center;
-}
-
-/* ✅ 여기부터: 가격/환불 강조만 추가 */
-.offerBox{
-  border:1px solid #333;
-  border-radius:14px;
-  padding:18px;
-  background:rgba(255,255,255,0.02);
-}
-.priceCard{
-  border:1px solid #333;
-  border-radius:12px;
-  padding:14px 14px 12px;
-  margin-bottom:12px;
-  background:rgba(0,0,0,0.25);
-}
-.priceTop{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:10px;
-  margin-bottom:8px;
-}
-.price{
-  font-size:20px;
-  font-weight:900;
-  color:#fff;
-}
-.freq{
-  font-size:13px;
-  color:#bdbdcc;
-}
-.value{
-  font-size:15px;
-  font-weight:900;
-  color:#fff;
-  margin:0 0 6px;
-}
-.note{
-  font-size:13px;
-  color:#b9b9c6;
-  margin:0;
-}
-.reco{
-  border-color:rgba(255,59,59,0.55);
-  box-shadow:0 10px 30px rgba(255,59,59,0.10);
-}
-.recoBadge{
-  display:inline-block;
-  font-size:12px;
-  font-weight:900;
-  color:#ffecec;
-  background:rgba(255,59,59,0.16);
-  border:1px solid rgba(255,59,59,0.35);
-  padding:6px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-}
-
-.refundBox{
-  border:1px solid rgba(34,197,94,0.45);
-  background:rgba(34,197,94,0.08);
-  border-radius:14px;
-  padding:18px;
-}
-.refundTitle{
-  font-size:20px;
-  font-weight:900;
-  color:#eafff2;
-  margin:0 0 12px;
-  line-height:1.25;
-}
-.refundLine{
-  margin:0 0 10px;
-  color:#c8f7d8;
-  font-weight:800;
-}
-.refundStrong{
-  margin:0;
-  color:#fff;
-  font-weight:900;
-}
-/* ✅ 여기까지 */
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>한 동네, 한 센터만 됩니다.</title>
+  <meta name="description" content="헬스장·PT샵·필라테스 대표님 대상 블로그/검색 점유 랜딩페이지" />
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --card:#11151b;
+      --text:#e9eef5;
+      --muted:#a9b4c0;
+      --line:rgba(255,255,255,.10);
+      --accent:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 0%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, Helvetica, Arial, "Malgun Gothic", sans-serif;
+      line-height:1.65;
+      letter-spacing:-0.2px;
+    }
+    a{color:inherit}
+    .wrap{max-width:920px;margin:0 auto;padding:28px 18px 80px}
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,13,16,.85), rgba(11,13,16,.35));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:920px;margin:0 auto;padding:12px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px
+    }
+    .brand{font-weight:700;opacity:.95;white-space:nowrap}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;text-decoration:none;font-weight:700;
+      background: rgba(255,255,255,.08);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{transform:translateY(-1px);background: rgba(255,255,255,.12);border-color: rgba(255,255,255,.35)}
+    .hero{
+      padding:28px 0 10px;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;border:1px solid var(--line);
+      border-radius:999px;color:var(--muted);
+      font-size:13px;background: rgba(255,255,255,.04);
+      margin-bottom:14px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .block{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+    }
+    .sep{
+      margin:18px 0 2px;
+      color:var(--muted);
+      opacity:.9;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing:0;
+    }
+    pre{
+      margin:0;
+      white-space:pre-wrap;
+      word-break:keep-all;
+      font: inherit;
+    }
+    footer{
+      margin-top:34px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width: 820px){
+      .grid{grid-template-columns:1fr 1fr}
+      .hero .card{padding:22px 20px}
+    }
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+  </style>
 </head>
-
 <body>
-<main class="container">
+  <header>
+    <div class="nav">
+      <div class="brand">한 동네, 한 센터만 됩니다.</div>
+      <a class="cta" href="#contact">문의하기</a>
+    </div>
+  </header>
 
-<!-- TOP -->
-<div class="badge">헬스장·PT샵·필라테스 대표 전용</div>
-<p class="strong">
-헬스장·PT샵·필라테스 대표님의 지역 키워드를 장악해,<br>
-상담부터 시작되게 만듭니다.
-</p>
+  <main class="wrap">
+    <section class="hero">
+      <div class="pill">원문 그대로 · 수정/의역 없음</div>
+      <div class="card">
+        <pre>헬스장·PT샵·필라테스 대표님,
 
-<!-- HERO -->
-<section>
-<h1>
-수업 잘하는 것과,<br>
+대표님 블로그 글을 읽고
+이미 ‘이 센터로 결정하고’ 오는 회원이 있습니다.
+
+그 회원은
+가격을 묻지 않습니다.
+비교도 하지 않습니다.
+
+이미 마음속에서
+결정이 끝난 상태로
+센터를 방문합니다.
+
+그런데 문제는,
+그런 회원을 만들어내는 센터가
+생각보다 많지 않다는 겁니다.
+
+수업 잘하는 것과,
 매출 나는 건 다릅니다.
-</h1>
 
-<p>
-김주영 코치는<br>
-한국체육대학교 학사·석사<br>
-현장 15년,
-</p>
+김주영 코치는
+한국체육대학교 학사·석사,
+현장 15년.
 
-<p>
-3천 명 데이터를 직접 다루며<br>
-결과를 만들어온 사람입니다.
-</p>
+3천 명 이상의 데이터를 직접 다루며
+“왜 결제가 되는지”를
+우연이 아니라 구조로 만들어온 사람입니다.
 
-<p class="strong">
-대표님 센터 블로그를<br>
+대표님 센터 블로그를
 상위에 올리는 것부터 시작해,
-</p>
 
-<p class="strong">
-회원이 가격을 묻기 전에<br>
-결제할 수밖에 없는 이유를<br>
-만드는 글만 작성합니다.
-</p>
+회원이 가격을 묻기 전에
+이미 ‘이 센터여야 하는 이유’가
+머릿속에 만들어지게 하는 글만 작성합니다.
 
-<p class="strong">
-이 글을 읽고 계신 대표님은,<br>
-이미 다른 마케팅과<br>
+이 글을 읽고 계신 대표님은
+이미 다른 마케팅과
 무엇이 다른지 느끼고 계실 겁니다.
-</p>
 
-<!-- PROFILE IMAGE -->
-<div class="profile">
-  <img src="me.png" alt="김주영 코치">
-  <div class="profileText">
-    <strong style="color:#fff;">김주영 코치</strong><br>
-    한국체육대학교 학사·석사<br>
-    생체역학 전공 · 현장 15년
-  </div>
-</div>
-
-<p style="font-size:13px;color:#aaa;margin-top:14px;">
 ※ 지역 독점은 선착순으로 적용됩니다.
-</p>
 
-<div class="ctaRow">
-  <a href="tel:01075790239" class="cta">전화 문의</a>
-  <a href="sms:01075790239" class="cta alt">문자 문의</a>
-  <a href="https://open.kakao.com/o/szijpW8h" class="cta ghost">카톡 문의</a>
-</div>
-</section>
+⸻
 
-<!-- PROOF ① -->
-<section>
-<h2>검색 결과가 증명합니다.</h2>
+검색 결과가 증명합니다.
 
-<p class="strong">
-단 7개 포스팅으로<br>
+작업 시작 7일 만에,
+단 7개 포스팅으로
 13개 키워드를 상위에 올렸습니다.
-</p>
 
-<p>
-2025년 4월 기준 캡쳐.<br>
-우연이 아니라,<br>
-구조로 반복 재현한 결과입니다.
-</p>
+2025년 4월 기준 캡쳐.
 
-<img src="proof-13-1.png" alt="">
-<img src="proof-13-2.png" alt="" style="margin-top:16px;">
+우연이 아니라,
+의도적으로 설계한 구조의 결과입니다.
 
-<!-- PROOF ② -->
-<section>
-<p class="strong">
-2025년 9월,<br>
-이 구조는 ‘장악’ 단계로 갑니다.
-</p>
+센터 블로그 상태를 먼저 진단한 뒤,
+노출 가능한 키워드만 선별해
+설계한 결과입니다.
 
-<p>
-상단 2~3개 슬롯 동시 점유.<br>
-같은 키워드를 검색해도<br>
-대표님 센터 말고는 보이지 않게 만듭니다.
-</p>
+이 단계의 목적은
+매출 폭발이 아닙니다.
 
-<img src="proof-keyword.png" alt="">
+“이 동네에 이런 센터가 있다”는 인식을
+검색 사용자 머릿속에
+반복 노출로 각인시키는 단계입니다.
 
-<p class="strong" style="margin-top:24px;">
-이 화면을 본 대표님은,<br>
-이미 이해하셨을 겁니다.
-</p>
-</section>
+⸻
 
-<p class="strong" style="margin-top:24px;">
-지금 문의하지 않으면,<br>
-우리 지역 키워드 장악을 옆 센터가 가져갑니다.
-</p>
-</section>
+이 구조는
+다음 단계로 갑니다.
 
-<!-- OPERATION -->
-<section>
-<h2>직접 운영해본 사람만 압니다.</h2>
-<p>• PT샵 6년 직접 운영</p>
-<p>• 월 순수익 최대 3천만 원 구조 경험</p>
-<p>• 광고가 아니라 ‘검색 유입 → 상담 → 결제’로 만든 매출</p>
-</section>
+상단 2~3개 슬롯 동시 점유.
 
-<!-- PAIN -->
-<section>
-<h2>상담 회원이 비싸다고 한다면,<br>
-이미 진 겁니다.</h2>
+같은 키워드를 검색해도
+대표님 센터 말고는
+보이지 않게 만듭니다.
 
-<p class="strong">
-가격 문제가 아닙니다.<br>
+이 지점부터는
+고객이 비교하지 않습니다.
+
+검색 = 대표님 센터가 됩니다.
+
+지금 문의하지 않으면,
+이 지역 키워드 장악은
+옆 센터가 가져갑니다.
+
+⸻
+
+센터를 직접 운영해본 사람만 압니다.
+
+PT샵 6년 직접 운영
+월 순수익 최대 3천만 원 구조 경험
+광고가 아니라
+‘검색 유입 → 상담 → 결제’로 만든 매출
+
+그래서 저는
+노출만 되는 글이 아니라,
+상담 성공률이 달라지는 글을 씁니다.
+
+⸻
+
+상담 회원이
+“비싸다”고 말한다면,
+이미 진 겁니다.
+
+가격 문제가 아닙니다.
 전문성이 전달되지 않은 겁니다.
-</p>
 
-<p>
-체험단·직원·마케팅 대행사의<br>
-의미없는 정보 글 하나가<br>
-대표님의 전문성을<br>
-‘동네 센터’로 만듭니다.
-</p>
+체험단, 직원, 대행사가 쓴
+의미 없는 정보 글 하나가
+대표님의 커리어를
+‘동네 센터’로 만들어버립니다.
 
-<p>
-그래서 상담 자리에서 대표님은<br>
-상담 회원에게 가격을 설명하고, 설득하고,<br>
+그래서 상담 자리에서
+대표님은 설명하고, 설득하고,
 결국 할인하게 됩니다.
-</p>
 
-<p class="strong">
-김주영 코치의 글은 상담 전에 이미<br>
-‘결제 납득’이 끝난 회원만 오게 만듭니다.
-</p>
-</section>
+⸻
 
-<!-- CAREER -->
-<section>
-<h2>CAREER</h2>
-<p>-한국체육대학교 학사·석사 (전공:생체역학)</p>
-<p>-한국체육대학교 Motion Innovation Center 연구보조</p>
-<p>(보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여)</p>
-<p>-KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</p>
-<p>-15년간 3천명 이상의 현장 경험과 연구 데이터 융합</p>
-<p>-호텔신라 Advance Personal Trainer</p>
-<p>-삼성엔지니어링·삼성물산 임원 전담 트레이닝</p>
-<p>-TPI Korea 창립 멤버</p>
-<p>-2014 World Golf Fitness Summit 한국 대표</p>
-<p>-KPGA·KLPGA 프로골퍼 다수 트레이닝
-</p>
-</section>
+김주영 코치의 글은 다릅니다.
 
-<p class="strong">
-그래서 저는<br>
-의미없는 정보 글이 아니라,<br>
-회원에게 ‘가격을 납득시키는 글’을 작성합니다.
-</p>
-</section>
+왜 이 통증이 생겼는지,
+왜 이 방식이 필요한지,
+왜 여기서 해결되는지를
 
-<!-- SYSTEM -->
-<section>
-<h2>대표님은 수업만 하세요.</h2>
-<p>분석, 키워드, 기획과 집필까지 전부 김주영 코치가 합니다.</p>
-<p class="strong">복사 → 붙여넣기 3분이면 됩니다.</p>
-</section>
+논문과 실제 데이터로
+회원 스스로 판단할 수 있게 만듭니다.
 
-<!-- OFFER (✅ 강조만 변경) -->
-<section>
-<h2>가격</h2>
+그래서 이 글을 읽고 온 회원은
+상담에서
+가격부터 묻지 않습니다.
 
-<p class="strong">
-※ 이 가격은 ‘글 개수’가 아니라,<br>
+⸻
+
+한국체육대학교 학사·석사 (전공: 생체역학)
+한국체육대학교 Motion Innovation Center 연구보조
+보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여
+KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문
+15년간 3천 명 이상의 현장 경험과 연구 데이터 융합
+호텔신라 Advance Personal Trainer
+삼성엔지니어링·삼성물산 임원 전담 트레이닝
+TPI Korea 창립 멤버
+2014 World Golf Fitness Summit 한국 대표
+KPGA·KLPGA 프로골퍼 다수 트레이닝
+
+그래서 저는
+의미 없는 정보 글이 아니라,
+회원이 가격을 납득하는 글을 씁니다.
+
+⸻
+
+대표님은 수업만 하세요.
+
+상권 분석, 키워드 선정,
+기획과 집필까지
+전부 제가 합니다.
+
+대표님이 하실 일은
+복사 → 붙여넣기,
+3분이면 됩니다.
+
+밤 11시에 블로그 쓰는 시간,
+대표님 시급으로 계산해보면
+이 선택이
+훨씬 싸다는 걸 바로 알게 됩니다.
+
+⸻
+
+이 가격은
+‘글 개수’가 아니라
 지역 키워드를 점유하는 비용입니다.
-</p>
 
-<div class="offerBox">
-  <div class="priceCard">
-    <div class="priceTop">
-      <div class="price">39만 원</div>
-      <div class="freq">주 2회 발행</div>
-    </div>
-    <p class="value">기초 노출과 문의 전화의 시작</p>
-    <p class="note">“일단 반응부터 확인”하려는 센터용</p>
-  </div>
+59만 원 / 주 3회 발행
 
-  <div class="priceCard reco">
-    <div class="recoBadge">가장 많이 선택되는 플랜</div>
-    <div class="priceTop">
-      <div class="price">59만 원</div>
-      <div class="freq">주 3회 발행</div>
-    </div>
-    <p class="value">상권 점유 및 신규 매출 극대화</p>
-    <p class="note">상담 문의 구조가 잡히는 구간</p>
-  </div>
+상위 노출 구조를 만드는 단계입니다.
 
-  <div class="priceCard" style="margin-bottom:0;">
-    <div class="priceTop">
-      <div class="price">99만 원</div>
-      <div class="freq">주 5회 발행</div>
-    </div>
-    <p class="value">경쟁 업체 차단 및 상권 완벽 독점</p>
-    <p class="note">경쟁 센터가 따라오기 어려운 격차</p>
-  </div>
-</div>
-</section>
+주 3회 발행은
+글 하나 더 쓰는 게 아닙니다.
 
-<p class="strong">
-여기까지 보셨다면,<br>
-타 업체들처럼<br>
-가격을 낮춰 팔 이유가 없다는 건<br>
-이미 느끼셨을 겁니다.
-</p>
+네이버 검색 1페이지에
+대표님 센터 글이
+2개 이상 동시에 노출될
+확률을 만드는 구간입니다.
 
-<!-- REFUND (✅ 강조만 변경) -->
-<section>
-<h2>환불 보장</h2>
+옆 센터로 갈 문의
+2건 중 1건을 가져오는 구조가
+여기서 만들어집니다.
 
-<div class="refundBox">
-  <p class="refundTitle">
-    첫 원고 확인 후<br>
-    불만족 시 100% 환불해 드립니다.
-  </p>
+문의가
+‘생기기 시작’하는 단계입니다.
 
-  <p class="refundLine">
-    이런 제안,<br>
-    결과에 자신 없으면 절대 못 합니다.
-  </p>
+⸻
 
-  <p class="refundStrong">
-    판단은 대표님이 하시면 됩니다.<br>
-    리스크는 제가 가져갑니다.<br>
-    결과로 증명하겠습니다.
-  </p>
-</div>
-</section>
+99만 원 / 주 5회 발행 (지역 독점)
 
-<!-- FINAL CTA -->
-<section>
-<h2>
-한 동네,<br>
+이 단계부터는
+조건이 완전히 달라집니다.
+
+같은 동네,
+같은 키워드군 의뢰는
+추가로 받지 않습니다.
+
+어떤 키워드를 검색해도
+대표님 센터만 보이게 만들어
+비교 자체를 없애는 단계입니다.
+
+사실상
+해당 지역 마케팅 직원을
+월 100만 원에 채용하는 효과입니다.
+
+한 동네,
+한 센터만 남깁니다.
+
+여기까지 보셨다면,
+왜 이 구조가
+저단가로 팔릴 수 없는지
+이미 이해하셨을 겁니다.
+
+※ VAT 별도 / 현금영수증 발행 가능
+
+⸻
+
+첫 원고 확인 후
+불만족 시
+100% 환불해 드립니다.
+
+이런 제안,
+결과에 자신 없으면
+절대 못 합니다.
+
+판단은 대표님이 하시면 됩니다.
+리스크는 제가 가져갑니다.
+결과로 증명하겠습니다.
+
+⸻
+
+한 동네,
 한 센터만 됩니다.
-</h2>
 
-<p>
-옆 센터가 먼저 선점하면<br>
+옆 센터가 먼저 선점하면
 대표님 차례는 없습니다.
-</p>
 
-<div class="ctaRow">
-  <a href="tel:01075790239" class="cta">전화 문의</a>
-  <a href="sms:01075790239" class="cta alt">문자 문의</a>
-  <a href="https://open.kakao.com/o/szijpW8h" class="cta ghost">카톡 문의</a>
-</div>
-</section>
+이 문구로 랜딩페이지 만들어보자</pre>
+      </div>
 
-<footer class="footer">
-본 페이지는 마케팅 정보 제공 목적입니다.<br>
-검색 결과는 시점·지역·플랫폼 정책에 따라 달라질 수 있습니다.
-</footer>
+      <div class="grid" style="margin-top:14px">
+        <div class="card" id="contact">
+          <pre>문의</pre>
+          <div class="block">
+            <pre>복사 → 붙여넣기,
+3분이면 됩니다.</pre>
+          </div>
+          <div class="note">GitHub Pages에 올릴 거면 이 파일을 <b>index.html</b>로 저장해서 리포지토리에 그대로 올리면 됩니다.</div>
+        </div>
 
-</main>
+        <div class="card">
+          <pre>※ 지역 독점은 선착순으로 적용됩니다.</pre>
+          <div class="block">
+            <pre>한 동네,
+한 센터만 됩니다.
+
+옆 센터가 먼저 선점하면
+대표님 차례는 없습니다.</pre>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div>© Landing Page (원문 그대로 배치)</div>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
