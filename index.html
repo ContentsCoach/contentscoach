@@ -1,683 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>김주영 코치 | 상담 프리패스 글쓰기</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지역 키워드 독점 구조</title>
 
-  <style>
-    :root{
-      --bg0:#090a0e;
-      --bg1:#0b0c10;
-      --card:#12141a;
-      --card2:#0f1117;
-      --stroke:rgba(255,255,255,.10);
-      --stroke2:rgba(255,255,255,.14);
-      --text:#f4f6ff;
-      --muted:rgba(244,246,255,.72);
-      --muted2:rgba(244,246,255,.56);
-      --accent:#ff4a4a;
-      --accent2:#ff5d5d;
-      --green:#1fbf6a;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --r:20px;
-      --r2:26px;
+<style>
+:root{
+  --bg:#0f0f12;
+  --text:#e9e9ef;
+  --sub:#b9b9c6;
+  --line:#2a2a33;
+  --accent:#ff3b3b;
+}
 
-      --max: 760px;
-      --pad: 18px;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;
+}
 
-      --h1: clamp(30px, 7vw, 48px);
-      --h2: clamp(22px, 5.5vw, 30px);
-      --h3: clamp(18px, 4.6vw, 22px);
-      --p:  clamp(15px, 3.8vw, 17px);
-      --p2: clamp(14px, 3.5vw, 16px);
-    }
+.container{
+  max-width:720px;
+  margin:0 auto;
+  padding:48px 20px 96px;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans-serif;
-      color:var(--text);
-      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 100%);
-      letter-spacing: -0.02em;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+section{margin-bottom:96px}
 
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 22px var(--pad) 70px;}
-    .section{padding: 26px 0;}
-    .divider{height:1px; background:rgba(255,255,255,.08); margin: 18px 0 0;}
-    .muted{color:var(--muted)}
-    .muted2{color:var(--muted2)}
-    .tight{line-height:1.35}
-    .lh{line-height:1.65}
+h1{
+  font-size:36px;
+  line-height:1.25;
+  margin:0 0 28px;
+  letter-spacing:-0.02em;
+}
+h2{
+  font-size:26px;
+  margin:0 0 20px;
+  letter-spacing:-0.01em;
+}
+p{
+  font-size:16px;
+  color:var(--sub);
+  margin:0 0 16px;
+}
+strong{color:#fff;font-weight:800}
 
-    /* Typography */
-    h1,h2,h3{margin:0; line-height:1.15}
-    h1{font-size:var(--h1); font-weight:900}
-    h2{font-size:var(--h2); font-weight:900}
-    h3{font-size:var(--h3); font-weight:800}
-    p{margin:0; font-size:var(--p); line-height:1.7; color:var(--muted)}
-    .lead{font-size:var(--p); color:rgba(244,246,255,.84)}
-    .bigline{margin-top:16px}
-    .bigline h1{margin-top:10px}
+.hr{
+  height:1px;
+  background:var(--line);
+  margin:72px 0;
+}
 
-    /* Small pill */
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: rgba(244,246,255,.78);
-      font-size: 13px;
-      font-weight:700;
-    }
+.ctaRow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+.cta{
+  flex:1;
+  padding:16px 0;
+  text-align:center;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+}
+.cta.main{background:var(--accent);color:#fff}
+.cta.sub{border:1px solid var(--accent);color:var(--accent)}
+.cta.ghost{border:1px solid var(--line);color:#ccc}
 
-    /* Cards (ONLY where needed) */
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid var(--stroke);
-      border-radius: var(--r2);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-    .card.soft{
-      background: rgba(255,255,255,.03);
-      box-shadow:none;
-    }
+.badge{
+  display:inline-block;
+  font-size:13px;
+  padding:6px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:#ccc;
+  margin-bottom:24px;
+}
 
-    /* Emphasis */
-    .em{
-      color:var(--text);
-      font-weight:900;
-    }
-    .kicker{
-      color:rgba(244,246,255,.86);
-      font-weight:800;
-    }
-    .hl{
-      color:var(--text);
-      font-weight:900;
-    }
-    .sub{
-      margin-top:10px;
-      color:rgba(244,246,255,.76);
-    }
+/* 텍스트 리듬 */
+.lead{font-size:18px;color:#fff}
+.compact p{margin-bottom:10px}
 
-    /* Profile */
-    .profile{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      margin-top:14px;
-    }
-    .avatar{
-      width:88px; height:88px; border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      flex:0 0 auto;
-    }
-    .avatar img{width:100%; height:100%; object-fit:cover}
-    .pname{font-weight:900; font-size:18px; margin:0}
-    .pmeta{margin-top:4px; font-size:14px; color:rgba(244,246,255,.72); line-height:1.45}
+/* 커리어 */
+.career p{
+  margin:0 0 8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 
-    /* Buttons */
-    .btnrow{display:flex; gap:12px; margin-top:14px}
-    .btn{
-      flex:1;
-      min-height:56px;
-      border-radius:18px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900;
-      font-size:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color:rgba(244,246,255,.92);
-      transition: transform .06s ease, filter .15s ease;
-      user-select:none;
-    }
-    .btn:active{transform:scale(.99)}
-    .btn.primary{
-      background: linear-gradient(180deg, var(--accent2), var(--accent));
-      border-color: rgba(255,255,255,.08);
-      color:white;
-      box-shadow: 0 18px 40px rgba(255,74,74,.22);
-    }
-    .btn.ghost{
-      background: rgba(255,255,255,.03);
-      border-color: rgba(255,74,74,.55);
-      color: rgba(255,120,120,.95);
-    }
-    .btn.full{width:100%}
-    .btnrow.stack{flex-direction:column}
-    .btn.small{min-height:52px; font-size:15px}
+/* 가격 */
+.priceWrap{margin-top:32px}
+.priceItem{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:20px;
+}
+.priceItem.highlight{
+  border-color:var(--accent);
+}
+.priceTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:14px;
+}
+.price{
+  font-size:28px;
+  font-weight:900;
+}
+.freq{font-size:14px;color:#bbb}
 
-    /* Proof images */
-    .proof{
-      margin-top:14px;
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-    }
-    .proof img{width:100%; height:auto}
+/* 환불 */
+.refund{
+  border:1px solid #1f7a4a;
+  background:rgba(34,197,94,.08);
+  border-radius:16px;
+  padding:28px;
+}
+.refund p{color:#d6f5e3}
+.refund strong{color:#fff}
 
-    /* Lists */
-    .bullets{margin:14px 0 0; padding:0; list-style:none; display:grid; gap:10px}
-    .bullets li{
-      display:flex; gap:10px; align-items:flex-start;
-      color:rgba(244,246,255,.78);
-      font-size:var(--p2);
-      line-height:1.6;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: rgba(244,246,255,.26);
-      margin-top:8px; flex:0 0 auto;
-    }
-
-    /* Quote (NO LEFT BAR) */
-    .quote{
-      margin-top:14px;
-      padding: 12px 0 0;
-      color: rgba(244,246,255,.84);
-      font-weight:800;
-      line-height:1.55;
-    }
-    .quote .q{display:block; font-weight:900; color:var(--text); margin-top:6px}
-
-    /* Pricing */
-    .pricegrid{display:grid; gap:14px; margin-top:14px}
-    .pricecard{
-      border-radius: 26px;
-      padding: 18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-    }
-    .pricecard.feature{
-      border-color: rgba(255,74,74,.40);
-      box-shadow: 0 18px 45px rgba(255,74,74,.10);
-    }
-    .badge{
-      display:inline-flex; align-items:center;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:900;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(244,246,255,.84);
-    }
-    .pricehead{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
-      margin-top:12px;
-    }
-    .price{
-      font-size:44px;
-      font-weight:1000;
-      letter-spacing:-0.03em;
-    }
-    .freq{
-      margin-top:10px;
-      color: rgba(244,246,255,.68);
-      font-weight:800;
-      font-size:14px;
-      white-space:nowrap;
-    }
-    .ptitle{
-      margin-top:8px;
-      font-weight:1000;
-      font-size:18px;
-      color: var(--text);
-    }
-    .pdesc{
-      margin-top:10px;
-      color: rgba(244,246,255,.68);
-      font-size: var(--p2);
-      line-height:1.7;
-    }
-    .note{margin-top:12px; color:rgba(244,246,255,.55); font-size:13px}
-
-    /* Refund */
-    .refund{
-      border-radius: 26px;
-      padding: 18px;
-      border:1px solid rgba(31,191,106,.45);
-      background: rgba(31,191,106,.08);
-    }
-    .refund h3{margin-bottom:8px}
-    .refund p{color:rgba(244,246,255,.82)}
-
-    /* Career (ONE LINE, no wrap) */
-    .careerbox{
-      padding:18px;
-      border-radius: 26px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      overflow:hidden;
-    }
-    .career-scroll{
-      overflow-x:auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 6px;
-    }
-    .career-list{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-width: 520px; /* 모바일에서 한 줄 유지용(가로 스크롤 허용) */
-    }
-    .career-list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      white-space:nowrap; /* 한줄 */
-      color: rgba(244,246,255,.86);
-      font-size: 15px;
-      line-height:1.4;
-      font-weight:700;
-    }
-    .dash{
-      opacity:.75;
-      flex:0 0 auto;
-    }
-    .career-foot{
-      margin-top:14px;
-      color: rgba(244,246,255,.72);
-      font-size: 14px;
-      line-height:1.7;
-    }
-
-    /* Sticky bottom CTA (optional, subtle) */
-    .sticky{
-      position: fixed;
-      left:0; right:0; bottom:0;
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-      background: linear-gradient(180deg, rgba(9,10,14,0), rgba(9,10,14,.78) 35%, rgba(9,10,14,.92));
-      backdrop-filter: blur(10px);
-    }
-    .sticky .inner{max-width:var(--max); margin:0 auto}
-    .sticky .btn{min-height:54px; border-radius:18px}
-
-    footer{
-      margin-top: 26px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(244,246,255,.45);
-      font-size: 12.5px;
-      line-height:1.7;
-      text-align:center;
-    }
-  </style>
+/* 모바일 */
+@media(max-width:480px){
+  h1{font-size:32px}
+  h2{font-size:24px}
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
+<main class="container">
 
-    <!-- HERO -->
-    <section class="section">
-      <span class="pill">헬스장·PT샵·필라테스 대표 전용</span>
+<div class="badge">헬스장·PT샵·필라테스 대표 전용</div>
 
-      <div class="bigline">
-        <p class="lead lh">
-          <span class="hl">대표님 블로그 글을 읽고</span><br>
-          이미 <span class="hl">‘이 센터로 결정하고’</span> 오는 회원이 있습니다.
-        </p>
+<section>
+<h1>
+헬스장·PT샵·필라테스 대표님,<br>
+대표님 블로그 글을 읽고<br>
+이미 ‘이 센터로 결정하고’ 오는 회원이 있습니다.
+</h1>
 
-        <p class="lead lh" style="margin-top:12px">
-          그 회원은 <span class="hl">가격을 묻지 않습니다.</span><br>
-          <span class="hl">비교도 하지 않습니다.</span>
-        </p>
+<p class="lead">
+그 회원은<br>
+가격을 묻지 않습니다.<br>
+비교도 하지 않습니다.
+</p>
 
-        <p class="lead lh" style="margin-top:12px">
-          이미 마음속에서 결정이 끝난 상태로<br>
-          센터를 방문합니다.
-        </p>
+<p class="lead">
+이미 마음속에서<br>
+결정이 끝난 상태로<br>
+센터를 방문합니다.
+</p>
 
-        <p class="lead lh" style="margin-top:14px">
-          <span class="hl">그런데 문제는,</span><br>
-          그런 회원을 만들어내는 센터가 생각보다 많지 않다는 겁니다.
-        </p>
+<p>
+그런데 문제는,<br>
+그런 회원을 만들어내는 센터가<br>
+생각보다 많지 않다는 겁니다.
+</p>
 
-        <h1 style="margin-top:28px">
-          수업 잘하는 것과,<br>매출 나는 건 다릅니다.
-        </h1>
+<p><strong>수업 잘하는 것과,<br>매출 나는 건 다릅니다.</strong></p>
 
-        <p class="lead lh" style="margin-top:14px">
-          김주영 코치는 한국체육대학교 학사·석사,<br>
-          현장 <span class="hl">15년</span>.<br><br>
-          <span class="hl">3천 명 데이터</span>를 직접 다루며<br>
-          “왜 결제가 되는지”를 구조로 만들어온 사람입니다.
-        </p>
+<p>
+김주영 코치는<br>
+한국체육대학교 학사·석사,<br>
+현장 15년.
+</p>
 
-        <p class="lead lh" style="margin-top:14px">
-          대표님 센터 블로그를 상위에 올리는 것부터 시작해,<br>
-          회원이 가격을 묻기 전에<br>
-          이미 ‘이 센터여야 하는 이유’가 머릿속에 만들어지게 하는 글만 작성합니다.
-        </p>
+<p>
+3천 명 데이터를 직접 다루며<br>
+<strong>“왜 결제가 되는지”</strong>를<br>
+구조로 만들어온 사람입니다.
+</p>
 
-        <p class="lead lh" style="margin-top:12px">
-          이 글을 읽고 계신 대표님은<br>
-          이미 다른 마케팅과 무엇이 다른지 느끼고 계실 겁니다.
-        </p>
+<p>
+대표님 센터 블로그를<br>
+상위에 올리는 것부터 시작해,
+</p>
 
-        <div class="profile card soft" style="margin-top:16px">
-          <div class="avatar">
-            <img src="me.png" alt="김주영 코치" />
-          </div>
-          <div>
-            <p class="pname">김주영 코치</p>
-            <p class="pmeta">
-              한국체육대학교 학사·석사<br>
-              생체역학 전공 · 현장 15년
-            </p>
-            <p class="muted2" style="margin-top:8px; font-size:13px; font-weight:700">
-              ※ 지역 독점은 선착순으로 적용됩니다.
-            </p>
-          </div>
-        </div>
+<p><strong>
+회원이 가격을 묻기 전에<br>
+이미 ‘이 센터여야 하는 이유’가<br>
+머릿속에 만들어지게 하는 글만 작성합니다.
+</strong></p>
 
-        <div class="btnrow" style="margin-top:14px">
-          <a class="btn primary" href="tel:01000000000">전화 문의</a>
-          <a class="btn ghost" href="sms:01000000000">문자 문의</a>
-        </div>
-        <div class="btnrow stack" style="margin-top:10px">
-          <a class="btn" href="#" onclick="alert('카카오 링크를 여기에 넣어주세요.'); return false;">카톡 문의</a>
-        </div>
-      </div>
-    </section>
+<p><strong>
+이 글을 읽고 계신 대표님은<br>
+이미 다른 마케팅과<br>
+무엇이 다른지 느끼고 계실 겁니다.
+</strong></p>
 
-    <!-- RESULTS -->
-    <section class="section" id="results">
-      <h2>검색 결과가 증명합니다.</h2>
+<p style="font-size:13px;color:#aaa">※ 지역 독점은 선착순으로 적용됩니다.</p>
 
-      <!-- 필요한 곳에만 카드: 여기 한 번만 -->
-      <div class="card" style="margin-top:14px">
-        <p class="lead lh">
-          작업 시작 <span class="hl">7일</span> 만에,<br>
-          단 <span class="hl">7개 포스팅</span>으로<br>
-          <span class="hl">13개 키워드</span>를 상위에 올렸습니다.
-        </p>
+<div class="ctaRow">
+  <a href="tel:01075790239" class="cta main">전화 문의</a>
+  <a href="sms:01075790239" class="cta sub">문자 문의</a>
+  <a href="https://open.kakao.com/o/szijpW8h" class="cta ghost">카톡 문의</a>
+</div>
+</section>
 
-        <div style="height:14px"></div>
+<div class="hr"></div>
 
-        <p class="lead lh">
-          <span class="hl">2025년 4월 기준 캡쳐.</span><br>
-          우연이 아니라,<br>
-          의도적으로 설계한 구조의 결과입니다.
-        </p>
+<section>
+<h2>검색 결과가 증명합니다.</h2>
 
-        <div style="height:14px"></div>
+<p class="lead">
+작업 시작 7일 만에,<br>
+단 7개 포스팅으로<br>
+13개 키워드를 상위에 올렸습니다.
+</p>
 
-        <p class="lead lh">
-          센터 블로그 상태를 먼저 진단한 뒤,<br>
-          노출 가능한 키워드만 선별해 설계한 결과입니다.
-        </p>
+<p>
+2025년 4월 기준 캡쳐.<br>
+우연이 아니라,<br>
+의도적으로 설계한 구조의 결과입니다.
+</p>
 
-        <div class="divider"></div>
+<p>
+센터 블로그 상태를 먼저 진단한 뒤,<br>
+노출 가능한 키워드만 선별해<br>
+설계한 결과입니다.
+</p>
 
-        <p class="lead lh" style="margin-top:14px">
-          <span class="hl">이 단계의 목적은</span><br>
-          <span class="hl">매출 폭발이 아닙니다.</span>
-        </p>
+<p>
+이 단계의 목적은 매출 폭발이 아닙니다.<br>
+<strong>“이 동네에 이런 센터가 있다”</strong>는 인식을<br>
+검색 사용자 머릿속에 각인시키는 단계입니다.
+</p>
+</section>
 
-        <!-- ✅ 요청: 체크한 왼쪽 바(인용선) 제거. 바 없이 깔끔한 강조만 -->
-        <div class="quote">
-          <span class="q">“이 동네에 이런 센터가 있다”</span>
-          <span class="muted" style="display:block; margin-top:6px">
-            는 인식을 검색 사용자 머릿속에<br>
-            반복 노출로 각인시키는 단계입니다.
-          </span>
-        </div>
-      </div>
+<div class="hr"></div>
 
-      <div class="proof">
-        <img src="proof-13-1.png" alt="검색 결과 캡처 1" />
-      </div>
+<section>
+<h2>문제 인식</h2>
 
-      <div class="proof" style="margin-top:12px">
-        <img src="proof-13-2.png" alt="검색 결과 캡처 2" />
-      </div>
+<p class="lead">
+상담 회원이 “비싸다”고 말한다면,<br>
+이미 진 겁니다.
+</p>
 
-      <div class="proof" style="margin-top:12px">
-        <img src="proof-keyword.png" alt="키워드 캡처" />
-      </div>
+<p>
+가격 문제가 아닙니다.<br>
+전문성이 전달되지 않은 겁니다.
+</p>
 
-      <!-- ✅ 체크했던 붕 뜨는 영역: 문장+버튼을 '한 덩어리 CTA 카드'로 정렬 -->
-      <div class="card soft" style="margin-top:16px; padding:16px; border-radius:22px;">
-        <p class="lead lh" style="color:rgba(244,246,255,.86); font-weight:900; margin:0">
-          지금 문의하지 않으면,<br>
-          이 지역 키워드 장악은 옆 센터가 가져갑니다.
-        </p>
-        <div style="height:12px"></div>
-        <a class="btn primary full" href="#" onclick="alert('상권도 확인 페이지/링크를 연결하세요.'); return false;">
-          내 상권도 확인하기
-        </a>
-      </div>
-    </section>
+<p>
+체험단, 직원, 대행사가 쓴<br>
+의미 없는 정보 글 하나가<br>
+대표님의 커리어를 ‘동네 센터’로 만듭니다.
+</p>
 
-    <!-- OPERATOR PROOF -->
-    <section class="section" id="operator">
-      <h2>직접 운영해본 사람만 압니다.</h2>
+<p>
+그래서 상담 자리에서 대표님은<br>
+설명하고, 설득하고,<br>
+결국 할인하게 됩니다.
+</p>
 
-      <ul class="bullets">
-        <li><span class="dot"></span><span><span class="hl">PT샵 6년</span> 직접 운영</span></li>
-        <li><span class="dot"></span><span>월 순수익 <span class="hl">최대 3천만 원</span> 구조 경험</span></li>
-        <li><span class="dot"></span><span>광고가 아니라 <span class="hl">‘검색 유입 → 상담 → 결제’</span>로 만든 매출</span></li>
-      </ul>
+<p><strong>
+왜 이 통증이 생겼는지,<br>
+왜 이 방식이 필요한지,<br>
+왜 여기서 해결되는지를
+</strong></p>
 
-      <div style="margin-top:18px">
-        <p class="lead lh">
-          그래서 저는<br>
-          <span class="hl">“노출만 되는 글”</span>이 아니라<br>
-          <span class="hl">“상담 성공률이 달라지는 글”</span>을 씁니다.
-        </p>
-      </div>
+<p>
+논문과 실제 데이터로<br>
+회원 스스로 판단할 수 있게 만듭니다.
+</p>
 
-      <div style="margin-top:22px">
-        <h2 style="font-size: clamp(24px, 6vw, 34px);">
-          상담 회원이 “비싸다”고 말한다면,<br>이미 진 겁니다.
-        </h2>
+<p class="lead">
+그래서 이 글을 읽고 온 회원은<br>
+상담에서 가격부터 묻지 않습니다.
+</p>
+</section>
 
-        <p class="lead lh" style="margin-top:12px">
-          가격 문제가 아닙니다.<br>
-          <span class="hl">전문성이 전달되지 않은 겁니다.</span>
-        </p>
+<div class="hr"></div>
 
-        <p class="lead lh" style="margin-top:12px">
-          체험단, 직원, 대행사가 쓴 의미 없는 정보 글 하나가<br>
-          대표님의 커리어를 ‘동네 센터’로 만들어버립니다.
-        </p>
+<section class="career">
+<h2>CAREER</h2>
+<p>한국체육대학교 학사·석사 (전공: 생체역학)</p>
+<p>한국체육대학교 Motion Innovation Center 연구보조</p>
+<p>KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</p>
+<p>15년간 3천 명 이상 현장 데이터</p>
+<p>호텔신라 Advance Personal Trainer</p>
+<p>삼성엔지니어링·삼성물산 임원 전담</p>
+<p>TPI Korea 창립 멤버</p>
+<p>2014 World Golf Fitness Summit 한국 대표</p>
+<p>KPGA·KLPGA 프로골퍼 트레이닝</p>
+</section>
 
-        <p class="lead lh" style="margin-top:12px">
-          그래서 상담 자리에서 대표님은 설명하고, 설득하고,<br>
-          결국 할인하게 됩니다.
-        </p>
+<div class="hr"></div>
 
-        <p class="lead lh" style="margin-top:14px">
-          <span class="hl">김주영 코치의 글은 다릅니다.</span>
-        </p>
+<section>
+<h2>가격</h2>
 
-        <p class="lead lh" style="margin-top:10px">
-          왜 이 통증이 생겼는지,<br>
-          왜 이 방식이 필요한지,<br>
-          왜 여기서 해결되는지를
-        </p>
+<p><strong>
+※ 이 가격은 ‘글 개수’가 아니라<br>
+지역 키워드를 점유하는 비용입니다.
+</strong></p>
 
-        <p class="lead lh" style="margin-top:10px">
-          논문과 실제 데이터로 회원 스스로 판단할 수 있게 만듭니다.
-        </p>
-
-        <p class="lead lh" style="margin-top:10px">
-          그래서 이 글을 읽고 온 회원은<br>
-          상담에서 가격부터 묻지 않습니다.
-        </p>
-
-        <!-- ✅ 체크했던 버튼: 폭/정렬/위치 최적화 -->
-        <div style="margin-top:14px">
-          <a class="btn primary full" href="#" onclick="alert('상담 프리패스 문의 링크를 연결하세요.'); return false;">
-            상담 프리패스 글쓰기 문의
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAREER -->
-    <section class="section" id="career">
-      <h2 style="letter-spacing:.02em">CAREER</h2>
-
-      <div class="careerbox" style="margin-top:14px">
-        <!-- ✅ 요청: 커리어 문장 한 줄로(줄바꿈 금지). 길면 가로 스크롤 -->
-        <div class="career-scroll" aria-label="커리어 목록(가로 스크롤)">
-          <ul class="career-list">
-            <li><span class="dash">-</span>한국체육대학교 학사·석사 (전공: 생체역학)</li>
-            <li><span class="dash">-</span>한국체육대학교 Motion Innovation Center 연구보조 (보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여)</li>
-            <li><span class="dash">-</span>KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</li>
-            <li><span class="dash">-</span>15년간 3천명 이상의 현장 경험과 연구 데이터 융합</li>
-            <li><span class="dash">-</span>호텔신라 Advance Personal Trainer</li>
-            <li><span class="dash">-</span>삼성엔지니어링·삼성물산 임원 전담 트레이닝</li>
-            <li><span class="dash">-</span>TPI Korea 창립 멤버</li>
-            <li><span class="dash">-</span>2014 World Golf Fitness Summit 한국 대표</li>
-            <li><span class="dash">-</span>KPGA·KLPGA 프로골퍼 다수 트레이닝</li>
-          </ul>
-        </div>
-
-        <div class="career-foot">
-          그래서 저는 의미 없는 정보 글이 아니라,<br>
-          <span class="hl">회원이 가격을 납득하는 글</span>을 씁니다.
-        </div>
-      </div>
-    </section>
-
-    <!-- YOU ONLY TEACH -->
-    <section class="section" id="onlyteach">
-      <h2>대표님은 수업만 하세요.</h2>
-
-      <!-- ✅ 박스 남발 X: 여기 한 번만 카드 -->
-      <div class="card soft" style="margin-top:14px">
-        <p class="lead lh">
-          상권 분석, 키워드 선정, 기획과 집필까지 전부 김주영 코치가 합니다.
-        </p>
-
-        <p class="lead lh" style="margin-top:10px">
-          대표님이 하실 일은 <span class="hl">복사 → 붙여넣기</span>, <span class="hl">3분</span>이면 됩니다.
-        </p>
-
-        <p class="lead lh" style="margin-top:10px">
-          밤 11시에 블로그 쓰는 시간,<br>
-          대표님 시급으로 계산해보면<br>
-          이 선택이 훨씬 싸다는 걸 곧바로 알게 됩니다.
-        </p>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section" id="pricing">
-      <h2>가격</h2>
-      <p class="lead lh" style="margin-top:10px">
-        ※ 이 가격은 ‘글 개수’가 아니라<br>
-        <span class="hl">지역 키워드를 점유하는 비용</span>입니다.
-      </p>
-
-      <div class="pricegrid">
-        <div class="pricecard feature">
-          <span class="badge">상권 장악의 최소 기준</span>
-
-          <div class="pricehead">
-            <div class="price">59만 원</div>
-            <div class="freq">주 3회 발행</div>
-          </div>
-
-          <div class="ptitle">상위 노출 구조를 만드는 단계</div>
-          <div class="pdesc">
-            네이버 검색 1페이지에 대표님 센터 글이 2개 이상 동시에 노출될 확률을 만드는 구간.<br>
-            옆 센터로 갈 문의 2건 중 1건을 가져오는 구조가 여기서 만들어집니다.<br>
-            문의가 ‘생기기 시작’하는 단계입니다.
-          </div>
-        </div>
-
-        <div class="pricecard">
-          <span class="badge">지역 독점</span>
-
-          <div class="pricehead">
-            <div class="price">99만 원</div>
-            <div class="freq">주 5회 발행 (지역 독점)</div>
-          </div>
-
-          <div class="ptitle">경쟁 업체 차단 및 상권 완벽 독점</div>
-          <div class="pdesc">
-            같은 동네, 같은 키워드군 의뢰는 추가로 받지 않습니다.<br>
-            어떤 키워드를 검색해도 대표님 센터만 보이게 만들어 비교 자체를 없애는 단계.<br>
-            사실상 해당 지역 마케팅 직원을 월 100만 원에 채용하는 효과입니다.<br><br>
-            <span class="hl">한 동네, 한 센터만 남깁니다.</span>
-          </div>
-
-          <p class="lead lh" style="margin-top:14px">
-            여기까지 보셨다면,<br>
-            왜 이 구조가 저단가로 팔릴 수 없는지 이미 이해하셨을 겁니다.
-          </p>
-
-          <div class="note">※ VAT 별도 / 현금영수증 발행 가능</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REFUND -->
-    <section class="section" id="refund">
-      <h2>환불 보장</h2>
-
-      <div class="refund" style="margin-top:14px">
-        <h3>첫 원고 확인 후 불만족 시 <span style="font-weight:1000">100% 환불</span>해 드립니다.</h3>
-        <p class="lh">
-          이런 제안, 결과에 자신 없으면 절대 못 합니다.<br>
-          판단은 대표님이 하시면 됩니다.<br>
-          리스크는 제가 가져갑니다.<br>
-          <span class="hl">결과로 증명하겠습니다.</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="section" id="final">
-      <h2 style="font-size: clamp(28px, 7vw, 44px);">
-        한 동네,<br>한 센터만 됩니다.
-      </h2>
-      <p class="lead lh" style="margin-top:10px">
-        옆 센터가 먼저 선점하면 대표님 차례는 없습니다.
-      </p>
-
-      <div class="btnrow" style="margin-top:14px">
-        <a class="btn primary" href="tel:01000000000">전화 문의</a>
-        <a class="btn ghost" href="sms:01000000000">문자 문의</a>
-      </div>
-      <div class="btnrow stack" style="margin-top:10px">
-        <a class="btn" href="#" onclick="alert('독점권 선점하기 링크를 연결하세요.'); return false;">OO동 독점권 선점하기</a>
-      </div>
-
-      <footer>
-        본 페이지는 마케팅 정보 제공 목적입니다.<br>
-        검색 결과는 시점·지역·플랫폼 정책에 따라 달라질 수 있습니다.
-      </footer>
-    </section>
-
-  </main>
-
-  <!-- (선택) 하단 고정 CTA: 싫으면 아래 sticky 전체 삭제 -->
-  <div class="sticky" role="region" aria-label="하단 고정 문의">
-    <div class="inner">
-      <a class="btn primary full" href="#" onclick="alert('상담 프리패스 문의 링크를 연결하세요.'); return false;">
-        상담 프리패스 글쓰기 문의
-      </a>
+<div class="priceWrap">
+  <div class="priceItem">
+    <div class="priceTop">
+      <div class="price">59만 원</div>
+      <div class="freq">주 3회 발행</div>
     </div>
+    <p>상위 노출 구조를 만드는 단계</p>
   </div>
 
+  <div class="priceItem highlight">
+    <div class="priceTop">
+      <div class="price">99만 원</div>
+      <div class="freq">주 5회 발행 / 지역 독점</div>
+    </div>
+    <p>한 동네, 한 센터만 남깁니다.</p>
+  </div>
+</div>
+
+<p style="font-size:13px;color:#aaa">※ VAT 별도 / 현금영수증 발행 가능</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+<h2>환불 보장</h2>
+<div class="refund">
+  <p><strong>첫 원고 확인 후<br>불만족 시 100% 환불</strong></p>
+  <p>리스크는 제가 가져갑니다.<br>결과로 증명하겠습니다.</p>
+</div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+<h2>한 동네,<br>한 센터만 됩니다.</h2>
+
+<p>
+옆 센터가 먼저 선점하면<br>
+대표님 차례는 없습니다.
+</p>
+
+<div class="ctaRow">
+  <a href="tel:01075790239" class="cta main">전화 문의</a>
+  <a href="sms:01075790239" class="cta sub">문자 문의</a>
+  <a href="https://open.kakao.com/o/szijpW8h" class="cta ghost">카톡 문의</a>
+</div>
+</section>
+
+</main>
 </body>
 </html>
