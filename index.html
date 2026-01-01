@@ -64,33 +64,62 @@ img{
   border:1px solid #222;
 }
 
+/* --- 프로필 섹션 (사진 확대 및 레이아웃 수정) --- */
 .profile{
   display:flex;
-  gap:20px;
+  gap:25px;
   align-items:center;
   margin:40px 0;
-  padding:25px;
+  padding:30px;
   background:#1a1a1e;
   border-radius:16px;
+  border: 1px solid #222;
 }
 .profile img{
-  width:80px;
-  height:80px;
+  width:140px; /* 요청하신 대로 비중 대폭 확대 */
+  height:140px;
   border-radius:50%;
   margin:0;
+  object-fit: cover;
+  border: 2px solid #00ff95;
+  flex-shrink: 0;
 }
-.profileName{ font-size:20px; font-weight:800; color:#fff; display:block; margin-bottom:4px; }
-.profileInfo{ font-size:15px; color:#888; line-height:1.4; }
+.profileName{ font-size:24px; font-weight:800; color:#fff; display:block; margin-bottom:6px; }
+.profileInfo{ font-size:16px; color:#888; line-height:1.5; }
 
-/* 경력 리스트 스타일 - 모바일에서 자연스러운 줄바꿈 */
-.career-list p {
+/* --- 경력 카드화 디자인 적용 --- */
+.career-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.career-card {
+  background: #1a1a1e;
+  padding: 22px;
+  border-radius: 12px;
+  border-left: 4px solid #00ff95;
+}
+.career-card .card-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.career-card .card-sub {
+  display: block;
+  font-size: 14px;
+  color: #888;
+}
+.academic-list {
+  margin-top: 25px;
+  padding-left: 5px;
+}
+.academic-list p {
   font-size: 16px;
   margin-bottom: 12px;
   color: #888;
-}
-.career-list .emphasize-career {
-  color: #ddd;
-  font-weight: 700;
 }
 
 .offerBox{
@@ -197,7 +226,7 @@ img{
       <span class="profileName">김주영 코치</span>
       <span class="profileInfo">
         한국체육대학교 학사·석사 (생체역학 전공)<br>
-        현장 경력 15년
+        현장 경력 15년 데이터 전문가
       </span>
     </div>
   </div>
@@ -265,24 +294,26 @@ img{
   <h2>김주영 코치 경력</h2>
   <div class="career-container">
     <div class="career-card">
-      <span class="title">삼성엔지니어링·삼성물산<br>부사장·전무·상무 전담 트레이닝</span>
-      <span class="sub">호텔신라 인증 상위 등급 트레이너로서 최고위층 전담 관리</span>
+      <span class="card-title">삼성엔지니어링·삼성물산<br>부사장·전무·상무 전담 트레이닝</span>
+      <span class="card-sub">최고 결정권자들을 위한 전담 피지컬 솔루션</span>
     </div>
     <div class="career-card">
-      <span class="title">호텔신라 Advance Personal Trainer</span>
-      <span class="sub">호텔신라가 인증한 전문성 있는 상위 등급 퍼스널 트레이너</span>
+      <span class="card-title">호텔신라 Advance Personal Trainer</span>
+      <span class="card-sub">VVIP를 위한 프리미엄 트레이닝 시스템 운영</span>
     </div>
     <div class="career-card">
-      <span class="title">KPGA·KLPGA 투어프로 전담 트레이닝</span>
-      <span class="sub">프로 선수들의 실전 경기력 향상 및 재활 전담</span>
+      <span class="card-title">KPGA·KLPGA 투어프로 다수 트레이닝</span>
+      <span class="card-sub">프로 선수들의 경기력 향상 및 재활 전담</span>
     </div>
   </div>
+
   <div class="academic-list">
     <p>· 한국체육대학교 학사·석사 (전공: 생체역학)</p>
-    <p>· 15년간 3,000명 이상의 현장 경험과 연구 데이터 융합</p>
-    <p>· TPI Korea 창립 멤버 / 2014 World Golf Fitness Summit 한국 대표참가</p>
     <p>· 한국체육대학교 Motion Innovation Center 연구보조</p>
+    <p>· (보행·러닝·족저압 인솔 관련 논문 실험 및 장비개발 참여)</p>
     <p>· KLPGA 프로골퍼 대상 스윙 분석 연구 학위논문</p>
+    <p>· 15년간 3천 명 이상의 현장 경험과 연구 데이터 융합</p>
+    <p>· TPI Korea 창립 멤버 / 2014 World Golf Fitness Summit 한국 대표</p>
   </div>
 </section>
 
