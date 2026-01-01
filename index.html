@@ -11,7 +11,7 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
   background:#0f0f12;
   color:#fff;
-  line-height:1.8; /* 가독성을 위해 행간 최적화 */
+  line-height:1.8;
   word-break: keep-all;
 }
 .container{
@@ -23,20 +23,22 @@ section{margin-bottom:100px}
 
 /* 글자 크기 및 강조 설정 */
 h1{font-size:36px; line-height:1.3; margin-bottom:30px; font-weight:900;}
-h2{font-size:28px; margin-bottom:24px; font-weight:800; color:#fff; border-left:4px solid #ff3b3b; padding-left:15px;}
+h2{font-size:28px; margin-bottom:24px; font-weight:800; color:#fff; border-left:4px solid #00ff95; padding-left:15px;}
 p{font-size:18px; color:#cfcfd8; margin-bottom:20px;}
 .strong{color:#fff; font-weight:800; font-size:20px;}
-.point-red{color:#ff3b3b; font-weight:900;}
+
+/* 포인트 컬러 수정: 눈이 편안한 형광 민트 계열 */
+.point-color{color:#00ff95; font-weight:900;}
 
 .badge{
   display:inline-block;
   font-size:14px;
   font-weight:700;
   padding:6px 16px;
-  background:#ff3b3b;
+  background:#00ff95;
   border-radius:4px;
   margin-bottom:20px;
-  color:#fff;
+  color:#000; /* 밝은 배경엔 어두운 글씨 */
 }
 
 .ctaRow{
@@ -48,14 +50,14 @@ p{font-size:18px; color:#cfcfd8; margin-bottom:20px;}
 .cta{
   text-align:center;
   padding:20px;
-  background:#ff3b3b;
-  color:#fff;
+  background:#00ff95;
+  color:#000;
   font-weight:800;
   font-size:20px;
   border-radius:12px;
   text-decoration:none;
 }
-.cta.alt{ background:#333; }
+.cta.alt{ background:#333; color:#00ff95; border:1px solid #00ff95; }
 .cta.ghost{ background:transparent; border:1px solid #444; color:#aaa; font-size:16px;}
 
 img{
@@ -87,7 +89,15 @@ img{
   line-height:1.5;
 }
 
-/* 가격 및 환불 섹션 스타일 */
+/* 경력 리스트 한 줄 정리용 스타일 */
+.career-list p {
+  font-size: 16px; /* 모바일 한 줄 출력을 위해 소폭 조정 */
+  margin-bottom: 12px;
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 혹시 넘치면 말줄임표 */
+}
+
 .offerBox{
   border:1px solid #333;
   border-radius:20px;
@@ -101,15 +111,15 @@ img{
   margin-bottom:20px;
   background:rgba(255,255,255,0.02);
 }
-.reco{ border:2px solid #ff3b3b; position:relative; }
+.reco{ border:2px solid #00ff95; position:relative; }
 .recoBadge{
   position:absolute; top:-15px; left:20px;
-  background:#ff3b3b; color:#fff; font-size:12px; font-weight:900;
+  background:#00ff95; color:#000; font-size:12px; font-weight:900;
   padding:4px 12px; border-radius:4px;
 }
 .priceTop{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:15px; }
 .price{ font-size:32px; font-weight:900; color:#fff; }
-.freq{ font-size:18px; color:#ff3b3b; font-weight:700; }
+.freq{ font-size:18px; color:#00ff95; font-weight:700; }
 .value{ font-size:20px; font-weight:900; color:#fff; margin-bottom:10px; display:block; }
 .note{ font-size:16px; color:#999; margin-top:10px; line-height:1.6; }
 
@@ -150,7 +160,7 @@ img{
 <section>
   <h1>
     수업 잘하는 것과,<br>
-    <span class="point-red">매출 나는 건 다릅니다.</span>
+    <span class="point-color">매출 나는 건 다릅니다.</span>
   </h1>
 
   <p class="strong">
@@ -166,7 +176,7 @@ img{
   </p>
 
   <p class="strong">
-    회원이 가격을 묻기 전에 이미 <span class="point-red">‘이 센터여야 하는 이유’</span>가 머릿속에 만들어지게 하는 글만 작성합니다.
+    회원이 가격을 묻기 전에 이미 <span class="point-color">‘이 센터여야 하는 이유’</span>가 머릿속에 만들어지게 하는 글만 작성합니다.
   </p>
 
   <p class="strong">
@@ -197,7 +207,7 @@ img{
   <h2>검색 결과가 증명합니다.</h2>
 
   <p class="strong">
-    작업 시작 7일 만에, 단 7개 포스팅으로 <span class="point-red">13개 키워드를 상위에 올렸습니다.</span>
+    작업 시작 7일 만에, 단 7개 포스팅으로 <span class="point-color">13개 키워드를 상위에 올렸습니다.</span>
   </p>
 
   <img src="proof-13-1.png" alt="검색결과 증명 1">
@@ -225,7 +235,7 @@ img{
   <img src="proof-keyword.png" alt="키워드 장악 증명">
 
   <p class="strong">
-    이 지점부터는 고객이 비교하지 않습니다. <span class="point-red">검색 = 대표님 센터가 됩니다.</span>
+    이 지점부터는 고객이 비교하지 않습니다. <span class="point-color">검색 = 대표님 센터가 됩니다.</span>
   </p>
 
   <p class="strong">
@@ -233,7 +243,7 @@ img{
   </p>
 
   <a href="https://open.kakao.com/o/szijpW8h" style="text-decoration:none;">
-    <p class="strong" style="color:#ff3b3b; border-bottom:1px solid #ff3b3b; display:inline-block;">[ 내 상권도 확인하기 ]</p>
+    <p class="strong" style="color:#00ff95; border-bottom:1px solid #00ff95; display:inline-block;">[ 내 상권도 확인하기 ]</p>
   </a>
 </section>
 
@@ -243,14 +253,14 @@ img{
   <p class="strong">· 월 순수익 최대 3천만 원 구조 경험</p>
   <p class="strong">· 광고가 아니라 ‘검색 유입 → 상담 → 결제’로 만든 매출</p>
   <br>
-  <p class="strong">그래서 저는 “노출만 되는 글”이 아니라 <span class="point-red">“상담 성공률이 달라지는 글”</span>을 씁니다.</p>
+  <p class="strong">그래서 저는 “노출만 되는 글”이 아니라 <span class="point-color">“상담 성공률이 달라지는 글”</span>을 씁니다.</p>
 </section>
 
 <section>
   <h2>상담 회원이 “비싸다”고 말한다면, 이미 진 겁니다.</h2>
 
   <p class="strong" style="font-size:22px;">
-    가격 문제가 아닙니다. <span class="point-red">전문성이 전달되지 않은 겁니다.</span>
+    가격 문제가 아닙니다. <span class="point-color">전문성이 전달되지 않은 겁니다.</span>
   </p>
 
   <p>
@@ -264,7 +274,7 @@ img{
   <p class="strong" style="font-size:22px; margin-top:40px;">김주영 코치의 글은 다릅니다.</p>
 
   <p class="strong">
-    왜 이 통증이 생겼는지, 왜 이 방식이 필요한지, 왜 여기서 해결되는지를 <span class="point-red">논문과 실제 데이터로 회원이 스스로 판단하게 만듭니다.</span>
+    왜 이 통증이 생겼는지, 왜 이 방식이 필요한지, 왜 여기서 해결되는지를 <span class="point-color">논문과 실제 데이터로 회원이 스스로 판단하게 만듭니다.</span>
   </p>
 
   <p class="strong">
@@ -276,7 +286,7 @@ img{
   </div>
 </section>
 
-<section>
+<section class="career-list">
   <h2>김주영 코치 경력</h2>
 
   <p class="strong">· 한국체육대학교 학사·석사 (전공: 생체역학)</p>
@@ -286,11 +296,12 @@ img{
   <p class="strong">· 15년간 3천 명 이상의 현장 경험과 연구 데이터 융합</p>
   <p class="strong">· 호텔신라 Advance Personal Trainer</p>
   <p class="strong">· 삼성엔지니어링·삼성물산 임원 전담 트레이닝</p>
+  <p class="strong">· KPGA·KLPGA 투어프로 다수 트레이닝 (추가)</p>
   <p>· TPI Korea 창립 멤버</p>
   <p>· 2014 World Golf Fitness Summit 한국 대표</p>
 
-  <p class="strong" style="margin-top:30px; font-size:22px;">
-    그래서 저는 의미 없는 정보 글이 아니라, <span class="point-red">회원이 가격을 납득하는 글을 씁니다.</span>
+  <p class="strong" style="margin-top:30px; font-size:22px; white-space: normal;">
+    그래서 저는 의미 없는 정보 글이 아니라, <span class="point-color">회원이 가격을 납득하는 글을 씁니다.</span>
   </p>
 </section>
 
@@ -302,7 +313,7 @@ img{
   </p>
 
   <p class="strong" style="font-size:22px;">
-    대표님이 하실 일은 <span class="point-red">복사 → 붙여넣기, 3분이면 됩니다.</span>
+    대표님이 하실 일은 <span class="point-color">복사 → 붙여넣기, 3분이면 됩니다.</span>
   </p>
 
   <p class="strong">
@@ -340,7 +351,7 @@ img{
     </div>
   </div>
 
-  <p style="font-size:14px; color:#888; margin-top:14px;">
+  <p style="font-size:14px; color:#aaa; margin-top:14px;">
     ※ VAT 별도 / 현금영수증 및 세금계산서 발행 가능
   </p>
 </section>
@@ -374,7 +385,7 @@ img{
 
   <div class="ctaRow">
     <a href="tel:01075790239" class="cta">[ OO동 독점권 선점하기 ]</a>
-    <a href="https://open.kakao.com/o/szijpW8h" class="cta ghost">카카오톡 실시간 문의</a>
+    <a href="https://open.kakao.com/o/szijpW8h" class="cta alt">카카오톡 실시간 문의</a>
   </div>
 </section>
 
