@@ -1,224 +1,176 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>검색 구조 설계 랜딩페이지</title>
-  <style>
-    body {
-      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    h1, h2, h3 {
-      color: #111;
-    }
-    .hero {
-      background-color: #f5f7fa;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-    }
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      background: #0070f3;
-      color: #fff;
-      padding: 15px 25px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .image-block {
-      margin: 30px 0;
-      text-align: center;
-    }
-    .image-block img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .quote {
-      background: #f9f9f9;
-      padding: 20px;
-      margin-top: 20px;
-      border-left: 4px solid #0070f3;
-    }
-    .quote small {
-      display: block;
-      margin-top: 10px;
-      color: #666;
-    }
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .profile img {
-      width: 100px;
-      height: 100px;
-      border-radius: 100%;
-      object-fit: cover;
-    }
-    footer {
-      background: #f0f0f0;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    @media (max-width: 600px) {
-      .profile {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 구조 설계 - 지역 독점 전략</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <style>
+        :root {
+            --main-blue: #0056FF;
+            --text-black: #222222;
+            --text-gray: #555555;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8F9FA;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.6;
+            color: var(--text-black);
+            background-color: var(--bg-white);
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* 글씨 위계 (Typography) */
+        h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.02em; }
+        h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; }
+        h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
+        p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 20px; }
+
+        .blue { color: var(--main-blue); }
+        .underline { border-bottom: 4px solid var(--main-blue); padding-bottom: 2px; }
+
+        /* 이미지 스타일 */
+        .proof-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        /* 버튼 스타일 */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--main-blue);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,86,255,0.3);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover { transform: scale(1.05); }
+
+        /* 후기 섹션 스타일 */
+        .review-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 5px solid var(--main-blue);
+        }
+
+        .review-text { font-size: 1.2rem; font-weight: 600; color: var(--text-black); margin-bottom: 10px; }
+        .review-author { font-size: 1rem; color: var(--main-blue); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.7rem; }
+            h3 { font-size: 1.3rem; }
+            .cta-button { font-size: 1.1rem; width: 100%; box-sizing: border-box; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>고객은 비교하지 않습니다.<br>검색에서 이미 선택을 끝냅니다.</h1>
-    <p>고객이 보는 건 검색 결과 한 화면.<br>그 순간, 선택은 끝났습니다.</p>
-    <a href="https://open.kakao.com/o/szijpW8h" class="cta-button" target="_blank">
-      내 지역 검색 구조 가능 여부 확인하기
-    </a>
-  </section>
+    <section>
+        <div class="container">
+            <h1>고객은 비교하지 않습니다.<br><span class="blue">이미 이 화면에서</span> 선택을 끝냅니다.</h1>
+            <p>남들보다 위에 있는 것이 아니라, 대표님만 보이게 만드는 '독점 구조'의 힘입니다.</p>
+            
+            <img src="proof-keyword.jpg" alt="다산동 키워드 점유 사례" class="proof-img">
+            <p style="font-size: 0.9rem;">*실제 다산동 주요 키워드 검색 결과 장악 사례</p>
 
-  <!-- 문제 정의 -->
-  <section>
-    <h2>문제는 실력도, 가격도 아닙니다.</h2>
-    <p>
-      고객은 매장 안에서 고민하지 않습니다.<br>
-      검색 결과 화면에서 이미 고릅니다.
-    </p>
-    <ul>
-      <li>1. 여러 업체가 보이면 → 비교</li>
-      <li>2. 비교가 시작되면 → 가격 질문</li>
-      <li>3. 가격을 묻는 순간 → 이미 패배</li>
-    </ul>
-  </section>
+            <a href="#" class="cta-button">내 지역 점유 가능 여부 확인하기</a>
+        </div>
+    </section>
 
-  <!-- 해결 방식 -->
-  <section>
-    <h2>해결은 검색 화면을 바꾸는 것입니다.</h2>
-    <p>
-      광고를 늘리지 않아도, 글을 많이 쓰지 않아도 됩니다.<br><br>
-      우리가 설계하는 구조는 다음과 같습니다:
-    </p>
-    <ul>
-      <li>지역 키워드 다수 동시 점유</li>
-      <li>검색 화면에서 경쟁사 노출 최소화</li>
-      <li>비교 없이 바로 문의로 연결</li>
-    </ul>
-    <p><strong>검색 = 선택 완료</strong></p>
-  </section>
+    <section style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2>가격을 묻는 순간,<br><span class="underline">이미 패배입니다.</span></h2>
+            <p>여러 업체가 섞여 보이면 고객은 '비교'를 숙제처럼 느낍니다.<br>
+            비교가 시작되면 기준은 실력이 아니라 '가격'만 남습니다.<br>
+            실력이 부족한 게 아닙니다. <strong>비교당하는 환경</strong>에 놓여있는 것이 문제입니다.</p>
+        </div>
+    </section>
 
-  <!-- 증명 -->
-  <section>
-    <h2>이건 마케팅이 아닙니다.<br>검색 구조가 만든 결과입니다.</h2>
-    <p>검색 화면이 바뀌면 고객 문의의 ‘질’이 달라집니다.</p>
-    <div class="image-block">
-      <img src="proof-keyword.png" alt="검색 구조 증명 이미지">
-    </div>
-  </section>
+    <section>
+        <div class="container">
+            <h3 class="blue">구조를 바꾸면 고객의 첫 마디가 바뀝니다.</h3>
+            
+            <div class="review-card">
+                <div class="review-text">"그전에는 ‘얼마예요?’만 왔는데, 지금은 ‘예약 가능할까요?’로 바뀌었어요."</div>
+                <div class="review-author">– 네일샵 원장 / 경기 지역</div>
+            </div>
 
-  <!-- 적용 대상 -->
-  <section>
-    <h2>이 구조는 이런 업종에 적용됩니다.</h2>
-    <ul>
-      <li>동네 기반 매장</li>
-      <li>지역명을 포함해 검색되는 업종</li>
-      <li>방문 / 예약 / 문의가 필요한 매장</li>
-      <li>필라테스, 요가, PT 스튜디오</li>
-      <li>네일샵, 왁싱, 피부관리 등 뷰티 업종</li>
-      <li>미용실, 타투, 메디컬 뷰티 등</li>
-    </ul>
-  </section>
+            <div class="review-card">
+                <div class="review-text">"원래는 체험권 문의만 오던 고객이 이젠 아예 등록 의사를 가지고 들어옵니다."</div>
+                <div class="review-author">– 필라테스 센터 운영 / 서울 지역</div>
+            </div>
 
-  <!-- 결과 변화 -->
-  <section>
-    <h2>고객은 이렇게 바뀝니다.</h2>
-    <ul>
-      <li>가격부터 묻지 않습니다</li>
-      <li>비교하지 않습니다</li>
-      <li>이미 결정한 상태로 연락합니다</li>
-    </ul>
-  </section>
+            <div class="review-card">
+                <div class="review-text">"예전에는 ‘커트 얼마예요?’부터 시작했는데, 요즘은 ‘오늘 몇 시 예약돼요?’로 물어봅니다."</div>
+                <div class="review-author">– 미용실 원장 / 서울 지역</div>
+            </div>
+        </div>
+    </section>
 
-  <!-- 후기 -->
-  <section>
-    <h2>실제 후기</h2>
+    <section style="background-color: var(--text-black); color: white;">
+        <div class="container">
+            <h2 style="color: white;">해결은 광고가 아닙니다.<br><span class="blue">검색 화면을 바꾸는 구조 설계</span>입니다.</h2>
+            <ul style="text-align: left; display: inline-block; font-size: 1.2rem; line-height: 2;">
+                <li>📍 지역 키워드 다수 동시 점유</li>
+                <li>📍 경쟁사 노출 최소화 및 비교 차단</li>
+                <li>📍 검색 = 곧바로 신뢰와 예약으로 연결</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="quote">
-      예전엔 ‘가격 좀 알려주세요’가 80%였는데<br>
-      지금은 ‘위치가 어디예요?’부터 물어봐요.
-      <small>– 타투 스튜디오 / 서울</small>
-    </div>
+    <section>
+        <div class="container">
+            <img src="me.jpg" alt="설계자 김주영" class="profile-img">
+            <h3>김주영 | <span class="blue">검색 구조 설계자</span></h3>
+            <p>단순히 상단 노출을 하는 마케터가 아닙니다.<br>
+            대표님의 지역 검색창 자체를 '독점 구조'로 설계합니다.</p>
+            <p><strong>"지역당 딱 1곳만 협업합니다."</strong><br>
+            (다산동처럼 이미 선점된 지역은 추가 진행이 불가능합니다.)</p>
+        </div>
+    </section>
 
-    <div class="quote">
-      그 전에는 ‘네일 얼마예요?’ 이런 질문만 왔는데,<br>
-      지금은 ‘혹시 예약 가능할까요?’로 바뀌었어요.
-      <small>– 네일샵 원장 / 경기 지역</small>
-    </div>
+    <section style="padding-bottom: 120px;">
+        <div class="container">
+            <h2>내 지역 검색 구조,<br>선점 가능한지 확인해 보세요.</h2>
+            <p>소요 시간 30초 이내</p>
+            <a href="#" class="cta-button">지금 바로 가능 여부 확인하기</a>
+        </div>
+    </section>
 
-    <div class="quote">
-      원래는 체험권 문의만 오던 고객이<br>
-      이젠 아예 등록 의사 가지고 들어옵니다.
-      <small>– 필라테스 센터 운영 / 서울 지역</small>
-    </div>
-
-    <div class="quote">
-      예전에는 ‘커트 얼마예요?’부터 시작했는데<br>
-      요즘은 ‘오늘 몇 시 예약돼요?’로 바로 물어봅니다.
-      <small>– 미용실 원장 / 서울 지역</small>
-    </div>
-  </section>
-
-  <!-- 제안 -->
-  <section>
-    <h2>제안드립니다</h2>
-    <p>
-      대표님 지역 기준<br>
-      검색 구조가 가능한지 먼저 확인해드립니다.
-    </p>
-    <ul>
-      <li>1차 구조 확인은 무료</li>
-      <li>가능한 지역만 안내</li>
-      <li>불가능한 지역은 진행하지 않음</li>
-    </ul>
-    <a href="https://open.kakao.com/o/szijpW8h" class="cta-button" target="_blank">
-      지금 바로 확인하기
-    </a>
-  </section>
-
-  <!-- 프로필 -->
-  <section class="profile">
-    <img src="me.png" alt="대표 프로필 사진">
-    <div>
-      <h3>김주영</h3>
-      <p>
-        검색에서<br>
-        ‘내 매장만 보이게’ 만드는 구조를 설계합니다.<br>
-        지역당 1곳만 협업합니다.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    ⓒ 2026 김주영 | 지역 키워드 검색 구조 설계
-  </footer>
 </body>
 </html>
