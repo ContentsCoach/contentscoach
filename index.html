@@ -1,162 +1,323 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상권 장악 시스템 | 김주영</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <style>
-        :root {
-            --bg: #050505;
-            --primary: #00ff84;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-sub: #999999;
-        }
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Pretendard', sans-serif;
-            margin: 0; padding: 0; line-height: 1.6; word-break: keep-all;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 480px; margin: 0 auto; padding: 0 20px; }
-        
-        section { 
-            padding: 80px 0 40px 0; 
-            min-height: 60vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-        }
-        
-        .tag { color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; display: block; }
-        h1 { font-size: 2.1rem; line-height: 1.35; font-weight: 800; margin: 0 0 24px 0; }
-        h2 { font-size: 1.7rem; font-weight: 800; line-height: 1.4; margin: 0 0 20px 0; }
-        .highlight { color: var(--primary); }
-        
-        /* 이미지 카드 및 일반 이미지 설정 */
-        .image-card {
-            background: linear-gradient(145deg, #111, #000);
-            border-radius: 16px;
-            padding: 30px 20px;
-            border: 1px solid #222;
-            margin: 20px 0;
-        }
-        .proof-img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--primary);
-            margin: 20px 0;
-            display: block;
-        }
-        
-        /* 프로필 영역 스타일 */
-        .profile-area {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            margin: 0 auto 20px auto;
-            display: block;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>검색 구조 설계 | 김주영</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <style>
+    :root{
+      --bg:#050505;
+      --primary:#00ff84; /* 연두 */
+      --card:#111111;
+      --line:#1f1f1f;
+      --text:#ffffff;
+      --sub:#9b9b9b;
+    }
+    *{box-sizing:border-box}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Pretendard',sans-serif;
+      margin:0;
+      line-height:1.65;
+      word-break:keep-all;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:520px;
+      margin:0 auto;
+      padding:0 20px;
+    }
 
-        .step-list { padding: 0; margin: 20px 0; }
-        .step-item { 
-            background: #1a1a1a; 
-            padding: 15px; 
-            border-radius: 10px; 
-            margin-bottom: 12px; 
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        .step-item span { color: var(--primary); margin-right: 12px; font-size: 1.2rem; }
-        .step-item.focus { border: 1px solid var(--primary); }
+    section{
+      padding:64px 0;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+    section:first-child{border-top:0; padding-top:54px;}
 
-        .cta-area { padding: 60px 0 100px 0; text-align: center; }
-        .btn { 
-            display: inline-block; 
-            width: 100%;
-            background: var(--primary); 
-            color: #000; 
-            text-align: center; 
-            padding: 22px 0; 
-            border-radius: 12px; 
-            font-weight: 800; 
-            text-decoration: none; 
-            font-size: 1.2rem;
-        }
+    .tag{
+      display:inline-block;
+      color:var(--primary);
+      font-weight:800;
+      font-size:0.85rem;
+      letter-spacing:0.2px;
+      margin-bottom:12px;
+    }
 
-        .footer-note { font-size: 0.85rem; color: var(--text-sub); margin-top: 15px; }
-    </style>
+    h1{
+      margin:0 0 18px 0;
+      font-size:2.1rem;
+      line-height:1.25;
+      font-weight:900;
+    }
+    h2{
+      margin:0 0 18px 0;
+      font-size:1.55rem;
+      line-height:1.35;
+      font-weight:900;
+    }
+    p{
+      margin:0 0 14px 0;
+      color:var(--sub);
+      font-size:1.02rem;
+    }
+    .strong{
+      color:var(--text);
+      font-weight:700;
+    }
+    .highlight{color:var(--primary);}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      margin-top:16px;
+    }
+
+    .proof-wrap{
+      background:linear-gradient(145deg,#0f0f0f,#000);
+      border:1px solid #1d1d1d;
+      border-radius:18px;
+      padding:14px;
+      margin:18px 0 18px 0;
+    }
+    .proof-img{
+      width:100%;
+      display:block;
+      border-radius:14px;
+      border:1px solid rgba(0,255,132,0.55);
+      background:#000;
+    }
+
+    ul{
+      margin:14px 0 0 0;
+      padding:0;
+      list-style:none;
+    }
+    li{
+      padding:12px 12px 12px 14px;
+      margin:10px 0;
+      background:#141414;
+      border:1px solid #1c1c1c;
+      border-radius:12px;
+      color:#eaeaea;
+      font-weight:650;
+    }
+    li b{color:var(--primary);}
+    .bullets{
+      margin-top:14px;
+      padding-left:0;
+    }
+    .bullets li{
+      background:transparent;
+      border:0;
+      padding:0 0 0 14px;
+      margin:10px 0;
+      position:relative;
+      color:#dedede;
+      font-weight:600;
+    }
+    .bullets li:before{
+      content:"";
+      width:6px;height:6px;border-radius:50%;
+      background:var(--primary);
+      position:absolute; left:0; top:9px;
+    }
+
+    .profile{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-top:14px;
+    }
+    .profile img{
+      width:84px;height:84px;border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(0,255,132,0.75);
+      background:#0b0b0b;
+      flex:0 0 auto;
+    }
+    .profile .name{
+      font-weight:900;
+      font-size:1.1rem;
+      margin:0 0 6px 0;
+      color:#fff;
+    }
+    .profile .desc{
+      margin:0;
+      color:var(--sub);
+      font-size:0.96rem;
+      line-height:1.55;
+    }
+
+    .cta-fixed{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:18px;
+      width:calc(100% - 36px);
+      max-width:520px;
+      z-index:999;
+      padding:0;
+    }
+    .btn{
+      display:block;
+      width:100%;
+      text-decoration:none;
+      text-align:center;
+      background:var(--primary);
+      color:#000;
+      font-weight:950;
+      padding:20px 18px;
+      border-radius:14px;
+      box-shadow:0 16px 40px rgba(0,255,132,0.22);
+      font-size:1.12rem;
+    }
+    .btn:active{transform:scale(0.99);}
+    .btn-outline{
+      display:block;
+      width:100%;
+      text-decoration:none;
+      text-align:center;
+      background:transparent;
+      color:var(--primary);
+      font-weight:900;
+      padding:18px 18px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,132,0.5);
+      margin-top:10px;
+    }
+
+    .spacer{height:110px;} /* fixed CTA 공간 */
+    .small-note{font-size:0.86rem; color:#7f7f7f; margin-top:10px;}
+  </style>
 </head>
 <body>
+  <div class="container">
 
-<div class="container">
+    <!-- SECTION 1: HERO -->
     <section>
-        <span class="tag">Systemized Marketing</span>
-        <h1>고객은 비교하지 않습니다.<br><span class="highlight">검색에서 결정합니다.</span></h1>
-        <p style="color: var(--text-sub);">대표님 상권의 고객은<br>이미 검색창에서 마음을 정했습니다.</p>
+      <span class="tag">지역 검색 구조</span>
+      <h1>
+        고객은 비교하지 않습니다.<br />
+        <span class="highlight">검색에서 결정합니다.</span>
+      </h1>
+
+      <p class="strong" style="color:#cfcfcf;">
+        이 검색 화면을 보고<br />
+        고객은 이미 선택을 끝냅니다.
+      </p>
+
+      <!-- Proof: HERO에 바로 -->
+      <div class="proof-wrap">
+        <img src="proof-keyword.png" alt="검색 결과 캡쳐" class="proof-img" />
+      </div>
+
+      <!-- HERO CTA (상단 1개) -->
+      <a class="btn" href="https://open.kakao.com/o/szijpW8h">내 지역 검색 구조 가능 여부 확인하기 →</a>
+      <p class="small-note">* 불가능한 상권은 진행하지 않습니다.</p>
     </section>
 
+    <!-- SECTION 2 -->
     <section>
-        <h2>가격을 묻는 순간,<br><span class="highlight">이미 선택에서 밀린 겁니다.</span></h2>
-        <div class="image-card">
-            <div class="step-item"><span>01</span> 여러 업체 노출 → 비교 시작</div>
-            <div class="step-item"><span>02</span> 비교 시작 → 최저가 탐색</div>
-            <div class="step-item focus"><span>03</span> 가격 질문 → 수익 악화</div>
-        </div>
-        <p>이 악순환을 끊는 유일한 방법은<br>비교 자체를 <span class="highlight">불가능하게 만드는 구조</span>입니다.</p>
+      <h2>지역 기반 매장의 문제는<br />실력도, 가격도 아닙니다.</h2>
+      <p class="strong" style="color:#cfcfcf;">
+        검색 결과에서 보이지 않는 것<br />
+        그게 전부입니다.
+      </p>
     </section>
 
+    <!-- SECTION 3 -->
     <section>
-        <span class="tag">The Strategy</span>
-        <h2>저는 글을 쓰지 않습니다.<br><span class="highlight">상권 장악 구조</span>를 설계합니다.</h2>
-        
-        <img src="proof-keyword.png" alt="상위노출 장악 증명" class="proof-img">
-        
-        <div class="image-card" style="border-color: var(--primary);">
-            <p style="margin:0; font-weight: 700;">비교 없이 결제하는 3단계</p>
-            <ul class="step-list">
-                <li style="margin-bottom:10px; list-style:none;">1. 지역 키워드 압도적 점유</li>
-                <li style="margin-bottom:10px; list-style:none;">2. 경쟁사가 보이지 않는 화면 설계</li>
-                <li style="margin-bottom:10px; list-style:none;">3. 검색 즉시 '여기다' 확신 부여</li>
-            </ul>
-        </div>
+      <h2>고객은 매장 안에서 고민하지 않습니다.<br />검색 결과 화면에서 고릅니다.</h2>
+      <ul>
+        <li><b>01</b> 여러 업체가 보이면 → 비교</li>
+        <li><b>02</b> 비교가 시작되면 → 가격 질문</li>
+        <li style="border:1px solid rgba(0,255,132,0.55);"><b>03</b> 가격을 묻는 순간 → 이미 패배</li>
+      </ul>
     </section>
 
+    <!-- SECTION 4 -->
     <section>
-        <div class="profile-area">
-            <img src="me.png" alt="김주영 코치" class="profile-img">
-            <h2>경험해본 사람만이<br>구조를 만듭니다.</h2>
-        </div>
-        <div class="image-card">
-            <p style="font-size: 1.1rem; font-weight: 700; margin-bottom:15px;">실전 경영자 김주영</p>
-            <p style="color: var(--text-sub); font-size: 0.95rem;">
-                - PT샵 6년 운영 (월 순수익 3,000만 원 구조)<br>
-                - 15년 데이터 기반 구매 심리 분석<br>
-                - 상권 보호를 위해 지역당 1곳만 한정 협업
-            </p>
-        </div>
-    </section>
+      <h2>해결 방식은<br /><span class="highlight">실력도, 가격도 아니고 검색 화면</span>입니다.</h2>
+      <p class="strong" style="color:#cfcfcf;">저는 광고를 하지 않습니다.<br />콘텐츠를 ‘많이’ 만들지도 않습니다.</p>
 
-    <section class="cta-area">
-        <h2>대표님의 상권도<br><span class="highlight">장악 가능할까요?</span></h2>
-        <p style="margin-bottom: 30px; color: var(--text-sub);">불가능한 상권은 시작하지 않습니다.<br>구조 구축 가능 여부부터 확인하세요.</p>
-        
-        <a href="https://open.kakao.com/o/szijpW8h" class="btn">내 지역 구조 가능 여부 확인하기 →</a>
-        
-        <p class="footer-note">
-            * 상권 보호를 위해 현재 상담 신청이 몰릴 경우<br>대기 시간이 발생할 수 있습니다.
+      <div class="card">
+        <p class="strong" style="margin:0 0 10px 0; color:#fff;">
+          검색 결과에서<br />한 업체만 보이게 만드는 구조를 설계합니다.
         </p>
+        <ul class="bullets">
+          <li>지역 키워드 다수 동시 점유</li>
+          <li>검색 화면에서 경쟁사 제거</li>
+          <li>비교 없이 바로 문의로 연결</li>
+        </ul>
+        <p class="strong" style="margin-top:16px; color:#fff;">검색 = 선택 완료</p>
+      </div>
     </section>
-</div>
 
+    <!-- SECTION 5 -->
+    <section>
+      <h2>이건 마케팅 성과가 아닙니다.<br />검색 결과 구조를 바꾼 결과입니다.</h2>
+      <div class="proof-wrap">
+        <img src="proof-keyword.png" alt="키워드 장악 증명 캡쳐" class="proof-img" />
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section>
+      <h2>업종이 아니라<br /><span class="highlight">‘지역 검색’이 있는 곳</span>이면 전부 적용됩니다.</h2>
+      <ul class="bullets">
+        <li>동네 기반 사업</li>
+        <li>지역명을 포함해 검색되는 모든 업종</li>
+        <li>방문 / 예약 / 문의가 필요한 매장</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section>
+      <h2>이 구조가 만들어지면<br />고객은 이렇게 바뀝니다.</h2>
+      <ul class="bullets">
+        <li>가격부터 묻지 않습니다</li>
+        <li>비교하지 않습니다</li>
+        <li>이미 결정한 상태로 연락합니다</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section>
+      <h2>그래서 이렇게 제안드립니다.</h2>
+      <p class="strong" style="color:#cfcfcf;">
+        대표님 지역 기준<br />
+        검색 구조가 가능한지 먼저 확인해드립니다.
+      </p>
+      <ul class="bullets">
+        <li>첫 구조 확인 후 진행 여부 결정</li>
+        <li>불가능한 상권은 진행하지 않습니다</li>
+      </ul>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="profile">
+          <img src="me.png" alt="김주영" />
+          <div>
+            <p class="name">김주영</p>
+            <p class="desc">
+              검색으로 매출이 나오는 구조만 설계합니다.<br />
+              지역당 1곳 기준으로만 협업합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+    </section>
+  </div>
+
+  <!-- Fixed CTA -->
+  <div class="cta-fixed">
+    <a class="btn" href="https://open.kakao.com/o/szijpW8h">내 지역 검색 구조 가능 여부 확인하기 →</a>
+    <a class="btn-outline" href="https://open.kakao.com/o/szijpW8h">카카오톡으로 바로 문의하기</a>
+  </div>
 </body>
 </html>
