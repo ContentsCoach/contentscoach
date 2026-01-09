@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>검색 구조 설계 - 김주영</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
             --main-blue: #0056FF;
@@ -13,7 +13,6 @@
             --bg-white: #FFFFFF;
         }
 
-        /* 기본 설정 및 모바일 텍스트 최적화 */
         body {
             margin: 0;
             padding: 0;
@@ -21,7 +20,7 @@
             background-color: var(--bg-white);
             color: var(--text-black);
             line-height: 1.6;
-            word-break: keep-all; /* 단어 단위 줄바꿈으로 가독성 향상 */
+            word-break: keep-all;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -29,16 +28,14 @@
 
         section { padding: 60px 0; text-align: center; }
 
-        /* 모바일 위계 (Typography Hierarchy) */
         h1 { font-size: 1.85rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.04em; line-height: 1.35; }
         h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.03em; }
-        h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-        p { font-size: 1rem; color: var(--text-gray); margin: 0 0 15px 0; }
+        h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+        p { font-size: 1.05rem; color: var(--text-gray); margin: 0 0 15px 0; }
         
         .blue { color: var(--main-blue); }
         .highlight { background: linear-gradient(to top, rgba(0, 86, 255, 0.1) 40%, transparent 40%); }
 
-        /* 모바일 이미지 최적화 */
         .img-box { margin: 30px 0; width: 100%; }
         .proof-img { 
             width: 100%; 
@@ -47,38 +44,41 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             display: block;
         }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; }
 
-        /* 후기 섹션 (모바일 카드 스타일) */
+        /* [수정] 프로필 사진 크기 극대화 설정 */
+        .profile-img { 
+            width: 100%;           /* 부모 너비에 꽉 차게 */
+            max-width: 500px;      /* 너무 커지는 것 방지 */
+            height: auto;          /* 가로세로 비율 유지 */
+            border-radius: 12px;   /* 원형 대신 세련된 둥근 사각형 */
+            object-fit: cover; 
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); /* 사진에 무게감 부여 */
+        }
+
         .review-section { background-color: #f8f9fb; padding: 60px 0; }
         .review-card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 12px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
         .review-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
         .review-author { font-size: 0.85rem; color: var(--main-blue); font-weight: 500; }
 
-        /* 모바일 최적화 버튼 (CTA) */
         .cta-btn {
             display: block;
             background: var(--main-blue);
             color: white;
-            padding: 18px 10px;
-            font-size: 1.15rem;
+            padding: 20px 10px;
+            font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-top: 30px;
             box-shadow: 0 8px 20px rgba(0, 86, 255, 0.2);
             transition: all 0.2s ease;
         }
         .cta-btn:active { transform: scale(0.98); background: #0046dd; }
 
-        /* 리스트 스타일 */
         .feature-list { text-align: left; padding: 0; list-style: none; display: inline-block; }
         .feature-list li { margin-bottom: 12px; font-weight: 500; font-size: 1.05rem; }
         .feature-list li::before { content: "✓ "; color: var(--main-blue); font-weight: 900; }
-
-        /* 하단 고정 버튼 (옵션: 필요시 주석 해제) 
-        .fixed-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding: 10px 20px; background: white; box-sizing: border-box; border-top: 1px solid #eee; }
-        */
     </style>
 </head>
 <body>
@@ -87,11 +87,9 @@
         <section style="padding-top: 40px;">
             <h1>고객은 비교하지 않습니다.<br><span class="blue">이미 이 화면에서</span><br>선택을 끝냅니다.</h1>
             <p>다산동 주요 키워드 실제 장악 사례</p>
-            
             <div class="img-box">
                 <img src="proof-keyword.png" alt="다산동 검색 점유 사례" class="proof-img">
             </div>
-
             <a href="#" class="cta-btn">내 지역 선점 가능 여부 확인하기</a>
         </section>
 
@@ -104,7 +102,6 @@
     <div class="review-section">
         <div class="wrapper">
             <h3 style="text-align: center; margin-bottom: 30px;">문의의 '질'이 바뀝니다.</h3>
-            
             <div class="review-card">
                 <div class="review-text">"얼마예요? 대신 예약 가능할까요? 로 바뀌었어요."</div>
                 <div class="review-author">– 네일샵 원장 / 경기 지역</div>
@@ -130,7 +127,7 @@
             </ul>
         </section>
 
-        <section style="background-color: #fdfdfd; border-radius: 20px;">
+        <section style="background-color: #fafafa; border-radius: 24px; padding: 40px 20px;">
             <img src="me.png" alt="김주영 설계자" class="profile-img">
             <h3>김주영 | <span class="blue">검색 구조 설계자</span></h3>
             <p><strong>지역당 딱 1곳만 협업합니다.</strong><br>이미 선점된 지역은 추가 진행이 불가합니다.</p>
