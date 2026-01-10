@@ -31,7 +31,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .wrapper { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+        /* 1. 쏠림 방지를 위한 전체 여백 조정 */
+        .wrapper { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 0 25px; /* 좌우 여백을 더 넓혀 시각적 안정감 부여 */
+            box-sizing: border-box;
+        }
+
         section { padding: 50px 0; text-align: center; }
         
         h1 { font-size: 1.85rem; font-weight: 800; line-height: 1.4; margin-bottom: 20px; letter-spacing: -0.04em; }
@@ -43,22 +50,29 @@
         .red { color: var(--point-red); font-weight: 800; }
         .highlight { background: linear-gradient(to top, rgba(0, 86, 255, 0.1) 40%, transparent 40%); }
 
-        .proof-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 30px 0; display: block; }
+        /* 2. 이미지 중앙 정렬 유지 */
+        .proof-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 30px auto; display: block; }
         
         .profile-img { 
             width: 100%; 
-            max-width: 500px; 
+            max-width: 100%; 
             height: auto; 
             border-radius: 15px; 
-            margin-bottom: 30px; 
+            margin: 0 auto 30px auto; 
             box-shadow: 0 15px 45px rgba(0,0,0,0.12); 
             object-fit: cover;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .info-box { background: var(--bg-light); padding: 30px; border-radius: 20px; margin-bottom: 30px; text-align: left; }
+        /* 3. 인포박스 내부 여백 및 정렬 보정 */
+        .info-box { 
+            background: var(--bg-light); 
+            padding: 30px 22px; 
+            border-radius: 20px; 
+            margin-bottom: 30px; 
+            text-align: left; 
+            box-sizing: border-box;
+        }
         .info-box h2 { font-size: 1.5rem; color: var(--main-blue); margin-bottom: 20px; text-align: left; }
         .info-box ul { list-style: none; padding: 0; margin: 0; }
         .info-box li { margin-bottom: 20px; }
@@ -84,7 +98,7 @@
             background-color: #fff;
             border: 2px solid var(--main-blue); 
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 35px 20px;
             margin: 40px 0;
             box-shadow: 0 10px 30px rgba(0, 86, 255, 0.08);
         }
@@ -121,9 +135,17 @@
             font-weight: 800; 
             text-decoration: none; 
             border-radius: 15px;
-            margin-top: 25px; 
+            margin: 25px auto 0 auto; 
             box-shadow: 0 10px 25px rgba(0, 86, 255, 0.25);
             transition: all 0.2s ease;
+        }
+
+        /* 4. 프로필 텍스트 여백 보정 클래스 */
+        .profile-text {
+            text-align: left; 
+            font-size: 1.05rem; 
+            line-height: 1.8;
+            padding: 0 10px; /* 양옆 여백을 주어 한쪽으로 쏠려 보이지 않게 함 */
         }
     </style>
 </head>
@@ -229,12 +251,12 @@
         <section style="padding-top: 40px;">
             <img src="./me.png" alt="매출 코치 김주영" class="profile-img">
             <h3>김주영 | <span class="blue">검색으로 매출 만드는 사람</span></h3>
-            <p style="text-align: left; font-size: 1.05rem; line-height: 1.8;">
+            <div class="profile-text">
                 "책으로 배운 마케팅이 아닙니다. 저는 직접 매장을 운영하며 제 돈을 들여 매출을 만들어본 사람입니다."<br><br>
                 마케팅 로직은 계속 바뀌지만, 고객이 지갑을 여는 <b>본질</b>은 변하지 않습니다. 제가 직접 현장에서 검증했던 기준 그대로 작업합니다.<br><br>
                 <span class="blue" style="font-weight: 700;">"제가 쓴 원고는 반드시 지역 키워드를 장악합니다."</span><br>
                 단, 경쟁 방지와 퀄리티 유지를 위해 <b>한 지역에 딱 한 업체하고만 일합니다.</b>
-            </p>
+            </div>
         </section>
 
         <section style="padding-bottom: 120px; padding-top: 20px;">
