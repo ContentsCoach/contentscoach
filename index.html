@@ -52,7 +52,7 @@
             object-fit: cover; display: block;
         }
 
-        /* 고퀄리티 프로세스 섹션 */
+        /* 이모지 제거 및 깔끔한 프로세스 디자인 */
         .process-container {
             display: flex;
             flex-direction: column;
@@ -62,34 +62,29 @@
         }
 
         .process-card {
-            display: flex;
-            align-items: center;
             background: #fff;
             border: 1px solid #edf2f7;
-            border-radius: 20px;
-            padding: 22px 18px;
+            border-radius: 16px;
+            padding: 24px 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.04);
             position: relative;
         }
 
         .step-tag {
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: var(--main-blue);
-            color: #fff;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 800;
-            padding: 2px 10px;
-            border-radius: 50px;
+            color: var(--main-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 4px;
         }
 
-        .step-icon { font-size: 2rem; margin-right: 18px; flex-shrink: 0; }
-        .step-title { display: block; font-size: 1.15rem; font-weight: 800; color: var(--main-blue); margin-bottom: 3px; }
-        .step-desc { display: block; font-size: 0.95rem; color: var(--text-gray); line-height: 1.4; word-break: keep-all; }
+        .step-title { display: block; font-size: 1.2rem; font-weight: 800; color: var(--text-black); margin-bottom: 4px; }
+        .step-desc { display: block; font-size: 0.95rem; color: var(--text-gray); line-height: 1.5; word-break: keep-all; }
         
         .final-card { border: 2px solid var(--main-blue); background: var(--bg-light); }
-        .step-divider { text-align: center; color: var(--main-blue); font-size: 1.2rem; opacity: 0.3; margin: -5px 0; }
+        .step-divider { text-align: center; color: var(--main-blue); font-size: 1.2rem; opacity: 0.2; margin: -5px 0; }
 
         .benefit-card {
             background-color: #fff; border: 2px solid var(--main-blue); border-radius: 20px;
@@ -126,44 +121,32 @@
         </section>
 
         <section>
-            <h2>고객이 가격을 묻는 순간,<br><span class="highlight">이미 패배입니다.</span></h2>
-            <p>검색 화면 전체를 사장님의 이름으로 장악하세요.<br>선택지가 하나뿐일 때, 고객은 반드시 결제 합니다.</p>
+            <h2>고객이 가격을 묻는 순간,<br><span class="highlight">이미 ‘제일 싼 곳’을 찾고 있는 겁니다.</span></h2>
+            <p>검색 화면 전체를 사장님의 이름으로 장악하세요.<br>선택지가 하나뿐일 때, 고객은 반드시 결제합니다.</p>
 
             <div class="process-container">
                 <div class="process-card">
                     <span class="step-tag">STEP 1</span>
-                    <span class="step-icon">🔍</span>
-                    <div class="step-info">
-                        <span class="step-title">시선 고정</span>
-                        <span class="step-desc">어딜 검색해도 사장님만 보이게 만듭니다.</span>
-                    </div>
+                    <span class="step-title">시선 고정</span>
+                    <span class="step-desc">어딜 검색해도 사장님만 보이게 만듭니다.</span>
                 </div>
                 <div class="step-divider">↓</div>
                 <div class="process-card">
                     <span class="step-tag">STEP 2</span>
-                    <span class="step-icon">📅</span>
-                    <div class="step-info">
-                        <span class="step-title">심리 설득</span>
-                        <span class="step-desc">글을 끝까지 읽으면 문의하지 않을 수 없게 합니다.</span>
-                    </div>
+                    <span class="step-title">심리 설득</span>
+                    <span class="step-desc">글을 끝까지 읽으면 문의하지 않을 수 없게 합니다.</span>
                 </div>
                 <div class="step-divider">↓</div>
                 <div class="process-card">
                     <span class="step-tag">STEP 3</span>
-                    <span class="step-icon">💳</span>
-                    <div class="step-info">
-                        <span class="step-title">확신 결제</span>
-                        <span class="step-desc">이미 마음을 정하고 온 고객은 가격을 묻지 않습니다.</span>
-                    </div>
+                    <span class="step-title">확신 결제</span>
+                    <span class="step-desc">이미 마음을 정하고 온 고객은 가격을 묻지 않습니다.</span>
                 </div>
                 <div class="step-divider">↓</div>
                 <div class="process-card final-card">
                     <span class="step-tag">RESULT</span>
-                    <span class="step-icon">📈</span>
-                    <div class="step-info">
-                        <span class="step-title">상권 독점</span>
-                        <span class="step-desc">사장님이 직접 체감하실 수 있는 매출 변화를 만듭니다.</span>
-                    </div>
+                    <span class="step-title">상권 독점</span>
+                    <span class="step-desc">사장님이 직접 체감하실 수 있는 매출 변화를 만듭니다.</span>
                 </div>
             </div>
         </section>
@@ -179,7 +162,7 @@
             </div>
 
             <div class="review-card">
-                <p style="margin:0; font-size: 1.1rem;"><strong>"가격 문의 대신 이번 주 예약 가능 시간부터 물어봅니다."</strong></p>
+                <p style="margin:0; font-size: 1.1rem;"><strong>"가격 문의 대신 예약 가능 시간부터 물어봅니다."</strong></p>
                 <span class="blue" style="font-size: 0.9rem;">– 네일샵 원장 / 경기 지역</span>
             </div>
 
@@ -189,12 +172,12 @@
             </div>
 
             <div class="review-card">
-                <p style="margin:0; font-size: 1.1rem;"><strong>"블로그 하나 바꿨을 뿐인데 학부모님들 상담 신청이 끊이지 않습니다."</strong></p>
+                <p style="margin:0; font-size: 1.1rem;"><strong>"블로그 하나 바꿨을 뿐인데 상담 신청이 끊이지 않습니다."</strong></p>
                 <span class="blue" style="font-size: 0.9rem;">– 학원 원장 / 서울 지역</span>
             </div>
 
             <div class="review-card">
-                <p style="margin:0; font-size: 1.1rem;"><strong>"고객들이 원장님 글 읽고 믿음이 가서 왔다고 해요. 너무 좋습니다."</strong></p>
+                <p style="margin:0; font-size: 1.1rem;"><strong>"원장님 글 읽고 믿음이 가서 왔다고 해요. 너무 좋습니다."</strong></p>
                 <span class="blue" style="font-size: 0.9rem;">– 반영구 원장 / 인천 지역</span>
             </div>
 
