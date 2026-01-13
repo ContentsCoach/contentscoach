@@ -1,246 +1,338 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="고객은 비교하지 않습니다.">
-    <meta property="og:description" content="검색에서 이미 결정합니다.">
-    <meta property="og:image" content="https://contentscoach.github.io/contentscoach/proof-keyword.png">
-    <meta property="og:url" content="https://contentscoach.github.io/contentscoach/">
-    
-    <title>고객은 검색에서 이미 결정합니다.</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <style>
-        :root { 
-            --main-blue: #0056FF; 
-            --text-black: #111111; 
-            --text-gray: #444444; 
-            --point-red: #FF3B30; 
-            --bg-light: #F8FAFF;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        body { 
-            margin: 0; padding: 0; 
-            font-family: 'Pretendard', -apple-system, sans-serif; 
-            background-color: #fff; 
-            color: var(--text-black); 
-            line-height: 1.7; 
-            word-break: normal; 
-            overflow-wrap: break-word;
-            -webkit-font-smoothing: antialiased;
-        }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="고객은 비교하지 않습니다." />
+  <meta property="og:description" content="검색에서 이미 결정합니다." />
+  <meta property="og:image" content="https://contentscoach.github.io/contentscoach/proof-keyword.png" />
+  <meta property="og:url" content="https://contentscoach.github.io/contentscoach/" />
 
-        .wrapper { max-width: 600px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
-        section { padding: 60px 0; text-align: center; }
-        
-        h1 { font-size: 1.85rem; font-weight: 800; line-height: 1.4; margin-bottom: 20px; letter-spacing: -0.04em; }
-        h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 18px; letter-spacing: -0.03em; }
-        h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
-        p { font-size: 1.05rem; color: var(--text-gray); margin: 0 0 15px 0; }
-        
-        .blue { color: var(--main-blue); }
-        .red { color: var(--point-red); font-weight: 800; }
-        .highlight { background: linear-gradient(to top, rgba(0, 86, 255, 0.1) 40%, transparent 40%); }
+  <title>고객은 검색에서 이미 결정합니다.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <style>
+    :root {
+      --main-blue: #0056FF;
+      --text-black: #111111;
+      --text-gray: #444444;
+      --point-red: #FF3B30;
+      --bg-light: #F8FAFF;
+    }
 
-        .proof-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 30px 0; display: block; }
-        
-        .profile-img { 
-            width: 100%; max-width: 500px; height: auto; border-radius: 15px; 
-            margin: 0 auto 30px auto; box-shadow: 0 15px 45px rgba(0,0,0,0.12); 
-            object-fit: cover; display: block;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background-color: #fff;
+      color: var(--text-black);
+      line-height: 1.7;
+      word-break: normal;
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .process-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 40px 0;
-            text-align: left;
-        }
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-        .process-card {
-            background: #fff;
-            border: 1px solid #edf2f7;
-            border-radius: 16px;
-            padding: 24px 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            position: relative;
-        }
+    section {
+      padding: 60px 0;
+      text-align: center;
+    }
 
-        .step-tag {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--main-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: block;
-            margin-bottom: 4px;
-            text-align: center;
-        }
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
 
-        .step-title {
-            display: block;
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--text-black);
-            margin-bottom: 4px;
-            text-align: center;
-        }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
 
-        .step-desc {
-            display: block;
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            line-height: 1.5;
-            word-break: keep-all;
-            text-align: center;
-        }
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
 
-        .final-card { border: 2px solid var(--main-blue); background: var(--bg-light); }
-        .step-divider { text-align: center; color: var(--main-blue); font-size: 1.2rem; opacity: 0.2; margin: -5px 0; }
+    p {
+      font-size: 1.05rem;
+      color: var(--text-gray);
+      margin: 0 0 15px 0;
+    }
 
-        .benefit-card {
-            background-color: #fff; border: 2px solid var(--main-blue); border-radius: 20px;
-            padding: 30px 20px; margin: 40px 0; box-shadow: 0 10px 30px rgba(0, 86, 255, 0.08);
-        }
+    .blue {
+      color: var(--main-blue);
+    }
 
-        .benefit-tag {
-            display: inline-block; background-color: var(--main-blue); color: #fff;
-            padding: 4px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; margin-bottom: 15px;
-        }
+    .red {
+      color: var(--point-red);
+      font-weight: 800;
+    }
 
-        .benefit-main { font-size: 1.8rem; font-weight: 900; line-height: 1.3; }
+    .highlight {
+      background: linear-gradient(to top, rgba(0, 86, 255, 0.1) 40%, transparent 40%);
+    }
 
-        .review-section { background-color: #f8f9fb; padding: 80px 0; }
+    .proof-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin: 30px 0;
+      display: block;
+    }
 
-        .review-card { 
-            background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px; 
-            text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-left: 5px solid var(--main-blue); 
-        }
+    .profile-img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 15px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+      display: block;
+    }
 
-        .cta-btn {
-            display: block; background: var(--main-blue); color: white; padding: 22px;
-            font-size: 1.3rem; font-weight: 800; text-decoration: none; border-radius: 15px;
-            margin-top: 25px; box-shadow: 0 10px 25px rgba(0, 86, 255, 0.25);
-            transition: all 0.2s ease;
-        }
-    </style>
+    .process-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 40px 0;
+      text-align: left;
+    }
+
+    .process-card {
+      background: #fff;
+      border: 1px solid #edf2f7;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .step-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--main-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .step-title {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-black);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .step-desc {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.65;
+      word-break: keep-all;
+      text-align: center;
+    }
+
+    .final-card {
+      border: 2px solid var(--main-blue);
+      background: var(--bg-light);
+    }
+
+    .step-divider {
+      text-align: center;
+      color: var(--main-blue);
+      font-size: 1.2rem;
+      opacity: 0.2;
+      margin: -5px 0;
+    }
+
+    .benefit-card {
+      background-color: #fff;
+      border: 2px solid var(--main-blue);
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0, 86, 255, 0.08);
+    }
+
+    .benefit-tag {
+      display: inline-block;
+      background-color: var(--main-blue);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .benefit-main {
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .review-section {
+      background-color: #f8f9fb;
+      padding: 80px 0;
+    }
+
+    .review-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      border-left: 5px solid var(--main-blue);
+    }
+
+    .cta-btn {
+      display: block;
+      background: var(--main-blue);
+      color: white;
+      padding: 22px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 15px;
+      margin-top: 25px;
+      box-shadow: 0 10px 25px rgba(0, 86, 255, 0.25);
+      transition: all 0.2s ease;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="wrapper">
+  <div class="wrapper">
     <section style="padding-top: 50px;">
-        <h1>
-            고객은 비교하지 않습니다.<br>
-            <span class="blue">첫 검색화면에서</span><br> 선택을 끝냅니다.
-        </h1>
-        <p>경쟁업체 대신 사장님을 선택하게 만드는 실제 화면</p>
-        <img src="https://contentscoach.github.io/contentscoach/proof-keyword.png" alt="블로그 장악 사례" class="proof-img">
-        <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">내 지역 비어있나요?</a>
+      <h1>고객은 비교하지 않습니다.<br><span class="blue">첫 검색화면에서</span><br> 선택을 끝냅니다.</h1>
+      <p>경쟁업체 대신 사장님을 선택하게 만드는 실제 화면</p>
+      <img src="https://contentscoach.github.io/contentscoach/proof-keyword.png" alt="블로그 장악 사례" class="proof-img">
+      <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">내 지역 비어있나요?</a>
     </section>
 
-        <section>
-            <h2>고객이 가격을 묻는 순간,<br><span class="highlight">이미 ‘제일 싼 곳’을 찾고 있는 겁니다.</span></h2>
-            <p>검색 화면 전체를 사장님의 이름으로 장악하세요.<br>선택지가 하나뿐일 때, 고객은 반드시 결제합니다.</p>
+    <section>
+      <h2>고객이 가격을 묻는 순간,<br><span class="highlight">이미 ‘제일 싼 곳’을 찾고 있는 겁니다.</span></h2>
+      <p>검색 화면 전체를 사장님의 이름으로 장악하세요.<br>선택지가 하나뿐일 때, 고객은 반드시 결제합니다.</p>
 
-            <div class="process-container">
-                <div class="process-card">
-                    <span class="step-tag">STEP 1</span>
-                    <span class="step-title">시선 고정</span>
-                    <span class="step-desc">어딜 검색해도 사장님만 보이게 만듭니다.</span>
-                </div>
-                <div class="step-divider">↓</div>
-                <div class="process-card">
-                    <span class="step-tag">STEP 2</span>
-                    <span class="step-title">심리 설득</span>
-                    <span class="step-desc">글을 끝까지 읽으면 문의하지 않을 수 없게 합니다.</span>
-                </div>
-                <div class="step-divider">↓</div>
-                <div class="process-card">
-                    <span class="step-tag">STEP 3</span>
-                    <span class="step-title">확신 결제</span>
-                    <span class="step-desc">이미 마음을 정하고 온 고객은 가격을 묻지 않습니다.</span>
-                </div>
-                <div class="step-divider">↓</div>
-                <div class="process-card final-card">
-                    <span class="step-tag">RESULT</span>
-                    <span class="step-title">상권 독점</span>
-                    <span class="step-desc">직접 체감하실 수 있는 매출 변화를 만듭니다.</span>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="review-section">
-        <div class="wrapper">
-            <h2 style="text-align: center; margin-bottom: 40px;">블로그 작성 후 실제 변화</h2>
-            
-            <div class="review-card">
-                <p><strong>"찔러보기 문의가 없어졌습니다. 이미 등록 결정을 한 고객이 찾아옵니다."</strong></p>
-                <span class="blue">– PT샵 원장 / 경기 지역</span>
-            </div>
-
-            <div class="review-card">
-                <p><strong>"가격 문의 대신 예약 가능 시간부터 물어봅니다."</strong></p>
-                <span class="blue">– 네일샵 원장 / 경기 지역</span>
-            </div>
-
-            <div class="review-card">
-                <p><strong>"어딜 검색해도 원장님만 나온다며 예약이 많아졌습니다."</strong></p>
-                <span class="blue">– 미용실 원장 / 서울 지역</span>
-            </div>
-
-            <div class="review-card">
-                <p><strong>"블로그 하나 바꿨을 뿐인데 상담 신청이 끊이지 않습니다."</strong></p>
-                <span class="blue">– 학원 원장 / 서울 지역</span>
-            </div>
-
-            <div class="review-card">
-                <p><strong>"원장님 글 읽고 믿음이 가서 왔다고 해요. 너무 좋습니다."</strong></p>
-                <span class="blue">– 반영구 원장 / 인천 지역</span>
-            </div>
-
-            <div class="review-card">
-                <p><strong>"상담도 안 했는데 이미 결제할 마음으로 오시네요."</strong></p>
-                <span class="blue">– 에스테틱 원장 / 경기 지역</span>
-            </div>
+      <div class="process-container">
+        <div class="process-card">
+          <span class="step-tag">STEP 1</span>
+          <span class="step-title">시선 고정</span>
+          <span class="step-desc">어딜 검색해도 사장님만 보이게 만듭니다.</span>
         </div>
-    </div>
+        <div class="step-divider">↓</div>
+        <div class="process-card">
+          <span class="step-tag">STEP 2</span>
+          <span class="step-title">심리 설득</span>
+          <span class="step-desc">글을 끝까지 읽으면 문의하지 않을 수 없게 합니다.</span>
+        </div>
+        <div class="step-divider">↓</div>
+        <div class="process-card">
+          <span class="step-tag">STEP 3</span>
+          <span class="step-title">확신 결제</span>
+          <span class="step-desc">이미 마음을 정하고 온 고객은 가격을 묻지 않습니다.</span>
+        </div>
+        <div class="step-divider">↓</div>
+        <div class="process-card final-card">
+          <span class="step-tag">RESULT</span>
+          <span class="step-title">상권 독점</span>
+          <span class="step-desc">직접 체감하실 수 있는 매출 변화를 만듭니다.</span>
+        </div>
+      </div>
+    </section>
+  </div>
 
+  <div class="review-section">
     <div class="wrapper">
-        <section>
-            <img src="https://contentscoach.github.io/contentscoach/me.png" alt="매출 코치 김주영" class="profile-img">
-    <h3>김주영 | <span class="blue">검색으로 매출을 만드는 사람</span></h3>
-    <p>
-    6년간 직접 PT샵을 운영하며<br>
-    <strong>월 순수익 3천만 원</strong>까지 벌어봤습니다.<br><br>
+      <h2 style="text-align: center; margin-bottom: 40px;">블로그 작성 후 실제 변화</h2>
 
-    그때 확신했습니다.<br>
-    검색 결과가 바뀌면, 매출이 달라집니다.<br><br>
+      <div class="review-card">
+        <p><strong>"찔러보기 문의가 없어졌습니다. 이미 등록 결정을 한 고객이 찾아옵니다."</strong></p>
+        <span class="blue">– PT샵 원장 / 경기 지역</span>
+      </div>
 
-    지금은 그걸 대신해드립니다.<br>
-    <strong>단, 한 지역 한 업체만 돕습니다.</strong>
-    </p>
+      <div class="review-card">
+        <p><strong>"가격 문의 대신 예약 가능 시간부터 물어봅니다."</strong></p>
+        <span class="blue">– 네일샵 원장 / 경기 지역</span>
+      </div>
 
-        </section>
+      <div class="review-card">
+        <p><strong>"어딜 검색해도 원장님만 나온다며 예약이 많아졌습니다."</strong></p>
+        <span class="blue">– 미용실 원장 / 서울 지역</span>
+      </div>
 
-        <section style="padding-bottom: 120px; border-top: 1px solid #eee;">
-            <div class="benefit-card">
-                <div class="benefit-tag">1차 선착순 10명 모집</div>
-                <div class="benefit-main">
-                    정가 대비 <span class="blue">50% 할인</span><br>
-                    <span class="red">현재 남은 자리 : 3명</span>
-                </div>
-                <p style="margin-top:15px; font-weight:700; font-size:1.1rem; color:#333;">첫 원고 확인 후 불만족 시 <span style="border-bottom: 2px solid var(--point-red);">100% 환불</span></p>
-            </div>
+      <div class="review-card">
+        <p><strong>"블로그 하나 바꿨을 뿐인데 상담 신청이 끊이지 않습니다."</strong></p>
+        <span class="blue">– 학원 원장 / 서울 지역</span>
+      </div>
 
-            <p class="red" style="font-size: 0.95rem; margin-bottom: 10px;">※ 원고 퀄리티 유지를 위해 선착순으로 마감됩니다.</p>
-            <h2>내 지역 장악 가능 여부 확인</h2>
-            <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">지금 바로 확인하기</a>
-        </section>
+      <div class="review-card">
+        <p><strong>"원장님 글 읽고 믿음이 가서 왔다고 해요. 너무 좋습니다."</strong></p>
+        <span class="blue">– 반영구 원장 / 인천 지역</span>
+      </div>
+
+      <div class="review-card">
+        <p><strong>"상담도 안 했는데 이미 결제할 마음으로 오시네요."</strong></p>
+        <span class="blue">– 에스테틱 원장 / 경기 지역</span>
+      </div>
     </div>
+  </div>
+
+  <div class="wrapper">
+    <section>
+      <img src="https://contentscoach.github.io/contentscoach/me.png" alt="매출 코치 김주영" class="profile-img">
+      <h3>김주영 | <span class="blue">검색으로 매출을 만드는 사람</span></h3>
+      <p>
+        6년간 직접 PT샵을 운영하며<br>
+        <strong>월 순수익 3천만 원</strong>까지 벌어봤습니다.<br><br>
+
+        그때 확신했습니다.<br>
+        검색 결과가 바뀌면, 매출이 달라집니다.<br><br>
+
+        지금은 그걸 대신해드립니다.<br>
+        <strong>단, 한 지역 한 업체만 돕습니다.</strong>
+      </p>
+    </section>
+
+    <section style="padding-bottom: 120px; border-top: 1px solid #eee;">
+      <div class="benefit-card">
+        <div class="benefit-tag">1차 선착순 10명 모집</div>
+        <div class="benefit-main">
+          정가 대비 <span class="blue">50% 할인</span><br>
+          <span class="red">현재 남은 자리 : 3명</span>
+        </div>
+        <p style="margin-top:15px; font-weight:700; font-size:1.1rem; color:#333;">
+          첫 원고 확인 후 불만족 시 <span style="border-bottom: 2px solid var(--point-red);">100% 환불</span>
+        </p>
+      </div>
+
+      <p class="red" style="font-size: 0.95rem; margin-bottom: 10px;">
+        ※ 원고 퀄리티 유지를 위해 선착순으로 마감됩니다.
+      </p>
+      <h2>내 지역 장악 가능 여부 확인</h2>
+      <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">지금 바로 확인하기</a>
+    </section>
+  </div>
 
 </body>
 </html>
