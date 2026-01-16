@@ -14,17 +14,17 @@
 
   <style>
     :root{
-      --yellow:#FFD400;
-      --black:#111;
-      --gray:#555;
+      --main-yellow:#FFD400;
+      --text-black:#111;
+      --text-gray:#444;
     }
 
     body{
       margin:0;
       font-family:'Pretendard',sans-serif;
-      color:var(--black);
+      color:var(--text-black);
+      line-height:1.7;
       background:#fff;
-      line-height:1.75;
     }
 
     .wrapper{
@@ -35,70 +35,96 @@
     }
 
     section{
-      padding:70px 0;
+      padding:60px 0;
       text-align:center;
     }
 
+    /* HERO */
+    .hero{
+      padding-top:40px;
+      padding-bottom:40px;
+    }
+
     h1{
-      font-size:2rem;
+      font-size:1.9rem;
       font-weight:900;
       line-height:1.35;
-      margin-bottom:20px;
+      margin-bottom:18px;
       letter-spacing:-0.04em;
     }
 
     h2{
       font-size:1.6rem;
-      font-weight:900;
-      margin-bottom:22px;
+      font-weight:800;
+      margin-bottom:18px;
     }
 
     p{
       font-size:1.05rem;
-      color:var(--gray);
-      margin:0 0 14px;
+      color:var(--text-gray);
+      margin:0 0 15px;
     }
 
     .yellow{
-      background:var(--yellow);
+      background:var(--main-yellow);
       padding:2px 6px;
       font-weight:900;
     }
 
     .highlight{
-      background:linear-gradient(to top,var(--yellow) 45%,transparent 45%);
+      background:linear-gradient(to top,var(--main-yellow) 45%,transparent 45%);
     }
 
     .hero-img{
       width:100%;
       max-width:420px;
-      margin:0 auto 22px;
+      margin:0 auto 20px;
       display:block;
     }
 
     .cta-btn{
       display:block;
-      background:var(--yellow);
+      background:var(--main-yellow);
       color:#111;
       padding:22px;
       font-size:1.3rem;
       font-weight:900;
-      border-radius:16px;
+      border-radius:15px;
       text-decoration:none;
-      margin-top:26px;
+      margin-top:22px;
     }
 
     /* PROCESS */
-    .process{
-      text-align:left;
-      max-width:480px;
-      margin:40px auto 0;
-      font-size:1.05rem;
-      color:#333;
+    .process-container{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin-top:40px;
     }
 
-    .process p{
-      margin-bottom:10px;
+    .process-card{
+      border:2px solid #111;
+      border-radius:16px;
+      padding:26px 20px;
+    }
+
+    .step-tag{
+      font-size:0.75rem;
+      font-weight:900;
+      background:var(--main-yellow);
+      display:inline-block;
+      padding:3px 10px;
+      margin-bottom:6px;
+    }
+
+    .step-title{
+      font-size:1.2rem;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .final-card{
+      background:var(--main-yellow);
     }
 
     /* PROOF */
@@ -109,23 +135,40 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.08);
     }
 
-    /* RESULT BLOCK */
-    .result-block{
-      font-size:1.25rem;
-      font-weight:900;
-      line-height:1.9;
-      text-align:center;
-      margin:90px 0;
-    }
-
     /* REVIEW */
-    .review-line{
-      font-size:1.05rem;
-      text-align:center;
-      margin:26px 0;
+    .review-section{
+      background:#fafafa;
+      padding:80px 0;
     }
 
-    .review-line span{
+    .result-chips{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin:30px 0 40px;
+    }
+
+    .chip{
+      border:2px solid #111;
+      border-radius:999px;
+      padding:14px 20px;
+      font-size:1.05rem;
+      font-weight:900;
+      background:#fff;
+    }
+
+    .review-card{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      margin-bottom:12px;
+      border-left:6px solid var(--main-yellow);
+      text-align:left;
+      font-size:1.05rem;
+    }
+
+    .review-meta{
+      margin-top:6px;
       font-size:0.9rem;
       color:#666;
       font-weight:700;
@@ -136,28 +179,28 @@
       width:100%;
       max-width:420px;
       border-radius:14px;
-      margin:0 auto 26px;
+      margin:0 auto 25px;
       display:block;
     }
 
     /* STANDARD */
     .standard{
+      padding-top:80px;
+      padding-bottom:120px;
       border-top:1px solid #eee;
-      padding-top:90px;
-      padding-bottom:130px;
     }
 
-    .standard p{
+    .standard-line{
       margin-bottom:10px;
     }
 
     .standard-strong{
-      font-size:1.25rem;
+      font-size:1.2rem;
       font-weight:900;
-      margin:32px 0 16px;
+      margin:30px 0 12px;
     }
 
-    .brand{
+    .standard-brand{
       font-size:0.95rem;
       color:#666;
       font-weight:700;
@@ -168,10 +211,9 @@
 <body>
 
 <div class="wrapper">
-
   <!-- HERO -->
-  <section>
-    <img src="bro-marketer-main.png" alt="BRO MARKETER" class="hero-img">
+  <section class="hero">
+    <img src="bro-marketer-main.png" alt="BRO MARKETER 캐릭터" class="hero-img">
 
     <h1>
       검색하면<br>
@@ -198,14 +240,30 @@
       신규 고객은 검색에서 결정합니다.
     </p>
 
-    <div class="process">
-      <p>그래서 저는 노출부터 잡습니다.</p>
-      <p>검색에서 밀린 구조부터 정리하고</p>
-      <p>지역 검색에서 상단에 올리고</p>
-      <p>그 위치를 계속 유지합니다.</p>
-      <p><strong>결과는 단순합니다.</strong></p>
-      <p>가격을 묻지 않습니다.</p>
-      <p>예약부터 진행합니다.</p>
+    <div class="process-container">
+      <div class="process-card">
+        <div class="step-tag">STEP 1</div>
+        <div class="step-title">구조 정리</div>
+        검색에서 밀린 원인부터 잡습니다.
+      </div>
+
+      <div class="process-card">
+        <div class="step-tag">STEP 2</div>
+        <div class="step-title">상단 노출</div>
+        지역 검색 시 사장님 가게가 먼저 보이게 만듭니다.
+      </div>
+
+      <div class="process-card">
+        <div class="step-tag">STEP 3</div>
+        <div class="step-title">노출 유지</div>
+        상단 위치를 계속 유지합니다.
+      </div>
+
+      <div class="process-card final-card">
+        <div class="step-tag">RESULT</div>
+        <div class="step-title">결과</div>
+        가격 묻지 않고 바로 예약합니다.
+      </div>
     </div>
   </section>
 
@@ -217,38 +275,38 @@
     </h2>
     <img src="proof-keyword.png" alt="검색 결과 증거" class="proof-img">
   </section>
+</div>
 
-  <!-- RESULT -->
-  <section>
-    <div class="result-block">
-      업종은 달라도<br>
-      결과는 같습니다.<br><br>
+<!-- REVIEW -->
+<div class="review-section">
+  <div class="wrapper">
+    <h2>업종은 달라도<br>반응은 같습니다</h2>
 
-      찔러보기 문의는 사라지고,<br>
-      가격 질문은 나오지 않고,<br>
-      예약부터 바로 진행됩니다.
+    <div class="result-chips">
+      <div class="chip">찔러보기 문의 사라짐</div>
+      <div class="chip">가격 문의 없음</div>
+      <div class="chip">예약부터 진행</div>
     </div>
-  </section>
 
-  <!-- REVIEW -->
-  <section>
-    <p class="review-line">
-      “상담 없이 바로 결제합니다.”<br>
-      <span>– PT샵 / 경기</span>
-    </p>
+    <div class="review-card">
+      “상담 없이 바로 결제합니다.”
+      <div class="review-meta">– PT샵 / 경기</div>
+    </div>
 
-    <p class="review-line">
-      “가격 얘기 안 합니다.”<br>
-      <span>– 네일샵 / 경기</span>
-    </p>
+    <div class="review-card">
+      “가격 얘기 안 합니다.”
+      <div class="review-meta">– 네일샵 / 경기</div>
+    </div>
 
-    <p class="review-line">
-      “검색하면 우리 가게만 나옵니다.”<br>
-      <span>– 미용실 / 서울</span>
-    </p>
-  </section>
+    <div class="review-card">
+      “검색하면 우리 가게만 나옵니다.”
+      <div class="review-meta">– 미용실 / 서울</div>
+    </div>
+  </div>
+</div>
 
-  <!-- PROFILE -->
+<!-- PROFILE + STANDARD -->
+<div class="wrapper">
   <section>
     <img src="bro-marketer-real.png" alt="BRO MARKETER 실사" class="profile-img">
 
@@ -265,25 +323,23 @@
     </p>
   </section>
 
-  <!-- STANDARD -->
   <section class="standard">
     <h2>기준</h2>
 
-    <p>한 지역 한 업체</p>
-    <p>자리 없으면 진행하지 않습니다.</p>
+    <p class="standard-line">한 지역 한 업체</p>
+    <p class="standard-line">자리 없으면 진행하지 않습니다.</p>
 
     <p class="standard-strong">
       안 될 판이면<br>
       애초에 시작 안 합니다.
     </p>
 
-    <p class="brand">BRO MARKETER 기준입니다.</p>
+    <p class="standard-brand">BRO MARKETER 기준입니다.</p>
 
     <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">
       내 지역, 진행 가능한지 바로 확인
     </a>
   </section>
-
 </div>
 
 </body>
