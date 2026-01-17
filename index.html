@@ -50,7 +50,13 @@
     h2 {
       font-size: 1.6rem;
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 48px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 24px;
     }
 
     p {
@@ -85,7 +91,7 @@
       font-weight: 900;
       border-radius: 15px;
       text-decoration: none;
-      margin-top: 18px;
+      margin-top: 32px;
     }
 
     .process-container {
@@ -117,7 +123,6 @@
       margin-bottom: 6px;
     }
 
-    /* ✅ RESULT 형광펜 두께 얇게 */
     .result-underline {
       display: inline-block;
       background: linear-gradient(to top, var(--main-yellow) 28%, transparent 28%);
@@ -130,16 +135,14 @@
       margin: 30px 0;
     }
 
-    /* =========================
-       🔥 증언 패널 (형광펜 인용형)
-       ========================= */
+    /* 후기 */
     .review-section {
       background: #fafafa;
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     .testimony {
-      margin-bottom: 32px;
+      margin-bottom: 52px;
       text-align: left;
     }
 
@@ -147,11 +150,12 @@
       display: inline;
       background: linear-gradient(to top, var(--main-yellow) 26%, transparent 26%);
       font-weight: 800;
+      line-height: 1.9;
     }
 
     .testimony span {
       display: block;
-      margin-top: 6px;
+      margin-top: 12px;
       font-size: 0.9rem;
       color: #666;
       font-weight: 500;
@@ -161,22 +165,19 @@
       width: 100%;
       max-width: 360px;
       border-radius: 14px;
-      margin: 0 auto 30px;
+      margin: 0 auto 40px;
       display: block;
     }
 
-    /* 구분선 */
-    .divider-section {
-      margin: 80px 0;
-      display: flex;
-      justify-content: center;
+    /* ✅ 1안: 선언 블록 (선 제거 + 여백으로 분리) */
+    .declaration-block {
+      margin: 100px 0 60px;
+      padding: 0 10px;
+      font-weight: 700;
     }
 
-    .divider-section span {
-      width: 48px;
-      height: 3px;
-      background: #111;
-      border-radius: 2px;
+    .declaration-block strong {
+      font-weight: 900;
     }
   </style>
 </head>
@@ -184,7 +185,6 @@
 <body>
 
 <div class="wrapper">
-  <!-- HERO -->
   <section style="padding-top:40px;">
     <img src="bro-marketer-main.png" class="hero-img">
 
@@ -201,7 +201,6 @@
     </a>
   </section>
 
-  <!-- PROCESS -->
   <section>
     <h2>
       잘하는 가게는 많습니다.<br>
@@ -239,18 +238,8 @@
       </div>
     </div>
   </section>
-
-  <!-- PROOF -->
-  <section>
-    <h2>
-      말로 설명하지 않습니다.<br>
-      <span class="highlight">검색 화면으로 보여드립니다.</span>
-    </h2>
-    <img src="proof-keyword.png" class="proof-img">
-  </section>
 </div>
 
-<!-- TESTIMONY -->
 <div class="review-section">
   <div class="wrapper">
     <h2>검색 결과가 바뀐 뒤<br>현장에서 바로 나온 말들</h2>
@@ -282,7 +271,6 @@
   </div>
 </div>
 
-<!-- DECLARATION -->
 <div class="wrapper">
   <section>
     <img src="bro-marketer-real.png" class="profile-img">
@@ -302,7 +290,7 @@
       그걸 사장님 가게에 씁니다.
     </p>
 
-    <p style="margin-top:36px;font-weight:700;">
+    <div class="declaration-block">
       한 지역 한 업체.<br><br>
 
       검색했을 때<br>
@@ -314,7 +302,7 @@
         안 될 판이면<br>
         애초에 시작 안 합니다.
       </strong>
-    </p>
+    </div>
 
     <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">
       내 지역, 진행 가능한지 바로 확인
