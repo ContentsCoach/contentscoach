@@ -15,171 +15,146 @@
 
   <style>
     :root {
-      --main-yellow: #FFD400;
-      --text-black: #111111;
-      --text-gray: #444444;
+      --main-yellow:#FFD400;
+      --text-black:#111111;
+      --text-gray:#444444;
+      --bg-rule:#f5f5f5;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Pretendard', -apple-system, sans-serif;
-      background-color: #fff;
-      color: var(--text-black);
-      line-height: 1.8;
+    body{
+      margin:0;
+      font-family:'Pretendard',-apple-system,sans-serif;
+      background:#fff;
+      color:var(--text-black);
+      line-height:1.8;
     }
 
-    .wrapper {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .wrapper{
+      max-width:560px;
+      margin:0 auto;
+      padding:0 20px;
+      text-align:center;
     }
 
-    section {
-      padding: 90px 0;
-      text-align: center;
+    section{
+      padding:90px 0;
     }
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 28px;
+    h1{
+      font-size:2rem;
+      font-weight:900;
+      line-height:1.4;
+      margin-bottom:28px;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-bottom: 36px;
-      line-height: 1.45;
+    h2{
+      font-size:1.6rem;
+      font-weight:800;
+      margin-bottom:36px;
     }
 
-    h3 {
-      font-size: 1.3rem;
-      font-weight: 800;
-      margin-bottom: 32px;
+    h3{
+      font-size:1.3rem;
+      font-weight:800;
+      margin-bottom:32px;
     }
 
-    p {
-      font-size: 1.1rem;
-      color: var(--text-gray);
-      margin: 0 0 28px 0;
-      line-height: 1.9;
+    p{
+      font-size:1.1rem;
+      color:var(--text-gray);
+      margin-bottom:28px;
+      line-height:1.9;
     }
 
-    .yellow {
-      background: var(--main-yellow);
-      padding: 2px 6px;
-      font-weight: 900;
+    .yellow{
+      background:var(--main-yellow);
+      padding:2px 6px;
+      font-weight:900;
     }
 
-    .highlight {
-      background: linear-gradient(to top, var(--main-yellow) 45%, transparent 45%);
+    .highlight{
+      background:linear-gradient(to top,var(--main-yellow) 45%,transparent 45%);
     }
 
-    .hero-img {
-      width: 100%;
-      max-width: 280px;
-      margin: 10px auto 16px;
-      display: block;
+    /* ✅ 내 사진 공통 크기 */
+    .profile-img{
+      width:100%;
+      max-width:260px;
+      border-radius:14px;
+      margin:0 auto 40px;
+      display:block;
     }
 
-    .cta-btn {
-      display: block;
-      background: var(--main-yellow);
-      color: #111;
-      padding: 24px;
-      font-size: 1.3rem;
-      font-weight: 900;
-      border-radius: 15px;
-      text-decoration: none;
-      margin-top: 48px;
+    .cta-btn{
+      display:block;
+      background:var(--main-yellow);
+      color:#111;
+      padding:24px;
+      font-size:1.3rem;
+      font-weight:900;
+      border-radius:15px;
+      text-decoration:none;
+      margin-top:48px;
     }
 
-    .process-container {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin: 56px 0;
+    .process-container{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin:56px 0;
     }
 
-    .process-card {
-      border: 2px solid var(--text-black);
-      border-radius: 16px;
-      padding: 30px 22px;
-      background: #fff;
-      line-height: 1.8;
+    .process-card{
+      border:2px solid var(--text-black);
+      border-radius:16px;
+      padding:30px 22px;
     }
 
-    .step-tag {
-      font-size: 0.75rem;
-      font-weight: 900;
-      background: var(--main-yellow);
-      display: inline-block;
-      padding: 4px 12px;
-      margin-bottom: 10px;
+    .step-tag{
+      font-size:0.75rem;
+      font-weight:900;
+      background:var(--main-yellow);
+      display:inline-block;
+      padding:4px 12px;
+      margin-bottom:10px;
     }
 
-    .step-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      margin-bottom: 10px;
+    .step-title{
+      font-size:1.25rem;
+      font-weight:900;
+      margin-bottom:10px;
     }
 
-    .result-underline {
-      display: inline-block;
-      background: linear-gradient(to top, var(--main-yellow) 28%, transparent 28%);
-      font-weight: 900;
+    .result-underline{
+      background:linear-gradient(to top,var(--main-yellow) 28%,transparent 28%);
+      font-weight:900;
     }
 
-    .proof-img {
-      width: 100%;
-      border-radius: 12px;
-      margin: 40px 0 0;
+    .proof-img{
+      width:100%;
+      border-radius:12px;
+      margin-top:40px;
     }
 
-    .review-section {
-      background: #fafafa;
-      padding: 120px 0;
+    /* 선언부 */
+    .rule-section{
+      background:var(--bg-rule);
+      padding:90px 0;
     }
 
-    .testimony {
-      margin-bottom: 64px;
-      text-align: left;
-      line-height: 1.9;
+    .rule-small{
+      font-size:1.15rem;
+      line-height:2.0;
+      margin-bottom:32px;
+      color:#333;
     }
 
-    .testimony strong {
-      display: inline;
-      background: linear-gradient(to top, var(--main-yellow) 26%, transparent 26%);
-      font-weight: 800;
-    }
-
-    .testimony span {
-      display: block;
-      margin-top: 14px;
-      font-size: 0.9rem;
-      color: #666;
-      font-weight: 500;
-    }
-
-    .profile-img {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 14px;
-      margin: 0 auto 56px;
-      display: block;
-    }
-
-    .declaration-block {
-      margin: 120px 0 80px;
-      padding: 0 10px;
-      font-weight: 700;
-      line-height: 2;
-    }
-
-    .declaration-block strong {
-      font-weight: 900;
+    .rule-big{
+      font-size:1.9rem;
+      font-weight:900;
+      line-height:1.4;
+      margin-bottom:48px;
+      color:#111;
     }
   </style>
 </head>
@@ -187,8 +162,9 @@
 <body>
 
 <div class="wrapper">
+  <!-- 히어로 -->
   <section style="padding-top:60px;">
-    <img src="bro-marketer-main.png" class="hero-img">
+    <img src="bro-marketer-main.png" class="profile-img">
 
     <h1>
       검색하면<br>
@@ -248,40 +224,8 @@
     </h2>
     <img src="proof-keyword.png" class="proof-img">
   </section>
-</div>
 
-<div class="review-section">
-  <div class="wrapper">
-    <h2>검색 결과가 바뀐 뒤<br>현장에서 바로 나온 말들</h2>
-
-    <div class="testimony">
-      <strong>찔러보기 문의가 아예 없어졌어요.</strong>
-      <span>– PT샵 / 경기</span>
-    </div>
-
-    <div class="testimony">
-      <strong>가격 얘기 안 하고 예약부터 하더라고요.</strong>
-      <span>– 네일샵 / 경기</span>
-    </div>
-
-    <div class="testimony">
-      <strong>검색하면 우리 가게만 나온대요.</strong>
-      <span>– 미용실 / 서울</span>
-    </div>
-
-    <div class="testimony">
-      <strong>상담 없이 바로 결제합니다.</strong>
-      <span>– 학원 / 서울</span>
-    </div>
-
-    <div class="testimony">
-      <strong>글 보고 이미 믿고 왔다고 합니다.</strong>
-      <span>– 에스테틱 / 경기</span>
-    </div>
-  </div>
-</div>
-
-<div class="wrapper">
+  <!-- 마지막 내 사진 섹션 -->
   <section>
     <img src="bro-marketer-real.png" class="profile-img">
 
@@ -299,25 +243,30 @@
       지금은<br>
       그걸 사장님 가게에 씁니다.
     </p>
+  </section>
+</div>
 
-    <div class="declaration-block">
-      한 지역 한 업체.<br><br>
+<div class="rule-section">
+  <div class="wrapper">
 
+    <p class="rule-small">한 지역 한 업체.</p>
+
+    <p class="rule-small">
       검색했을 때<br>
       사장님 가게가<br>
-      상단에 올라갈 수 없으면<br>
-      제안하지 않습니다.<br><br>
+      상단에 올라갈 수 없으면
+    </p>
 
-      <strong>
-        안 될 판이면<br>
-        애초에 시작 안 합니다.
-      </strong>
-    </div>
+    <p class="rule-big">
+      제안하지 않습니다.<br>
+      애초에 시작 안 합니다.
+    </p>
 
     <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">
       내 지역, 진행 가능한지 바로 확인
     </a>
-  </section>
+
+  </div>
 </div>
 
 </body>
