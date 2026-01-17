@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
   <style>
-    :root {
+    :root{
       --main-yellow:#FFD400;
-      --text-black:#111111;
-      --text-gray:#444444;
-      --bg-rule:#f5f5f5;
+      --text-black:#111;
+      --text-gray:#444;
+      --line-gray:#ededed;
+      --bg-rule:#f7f7f7;
+      --bg-review:#fafafa;
     }
 
     body{
@@ -40,23 +42,26 @@
       padding:90px 0;
     }
 
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      padding-top:80px;
+      padding-bottom:40px;
+      display:flex;
+      flex-direction:column;
+    }
+
     h1{
       font-size:2rem;
       font-weight:900;
       line-height:1.4;
-      margin-bottom:28px;
+      margin:28px 0;
     }
 
     h2{
       font-size:1.6rem;
       font-weight:800;
       margin-bottom:36px;
-    }
-
-    h3{
-      font-size:1.3rem;
-      font-weight:800;
-      margin-bottom:32px;
     }
 
     p{
@@ -76,13 +81,16 @@
       background:linear-gradient(to top,var(--main-yellow) 45%,transparent 45%);
     }
 
-    /* ✅ 내 사진 공통 크기 */
-    .profile-img{
+    .hero-img{
       width:100%;
-      max-width:260px;
-      border-radius:14px;
-      margin:0 auto 40px;
-      display:block;
+      max-width:280px;
+      margin:0 auto;
+    }
+
+    .hero-brand{
+      margin-top:32px;
+      color:#666;
+      font-size:1rem;
     }
 
     .cta-btn{
@@ -94,9 +102,10 @@
       font-weight:900;
       border-radius:15px;
       text-decoration:none;
-      margin-top:48px;
+      margin-top:auto;
     }
 
+    /* PROCESS */
     .process-container{
       display:flex;
       flex-direction:column;
@@ -136,7 +145,53 @@
       margin-top:40px;
     }
 
-    /* 선언부 */
+    /* REVIEW */
+    .review-section{
+      background:var(--bg-review);
+      padding:90px 0;
+    }
+
+    .review{
+      text-align:left;
+      margin-bottom:48px;
+    }
+
+    .review strong{
+      background:linear-gradient(to top,var(--main-yellow) 26%,transparent 26%);
+      font-weight:800;
+    }
+
+    .review span{
+      display:block;
+      margin-top:10px;
+      font-size:0.9rem;
+      color:#666;
+    }
+
+    /* PROFILE */
+    .profile-img{
+      width:100%;
+      max-width:360px;
+      border-radius:14px;
+      margin:0 auto 12px;
+    }
+
+    .profile-brand{
+      margin-bottom:32px;
+      color:#555;
+      font-size:0.95rem;
+    }
+
+    /* DIVIDER */
+    .full-divider{
+      width:100vw;
+      height:1px;
+      background:var(--line-gray);
+      margin:90px 0;
+      margin-left:calc(-50vw + 50%);
+    }
+
+    /* RULE */
     .rule-section{
       background:var(--bg-rule);
       padding:90px 0;
@@ -145,7 +200,7 @@
     .rule-small{
       font-size:1.15rem;
       line-height:2.0;
-      margin-bottom:32px;
+      margin-bottom:36px;
       color:#333;
     }
 
@@ -162,9 +217,10 @@
 <body>
 
 <div class="wrapper">
-  <!-- 히어로 -->
-  <section style="padding-top:60px;">
-    <img src="bro-marketer-main.png" class="profile-img">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="bro-marketer-main.png" class="hero-img">
 
     <h1>
       검색하면<br>
@@ -172,13 +228,17 @@
       나오게 만듭니다.
     </h1>
 
-    <p><strong>BRO MARKETER</strong><br>형이야마케터</p>
+    <p class="hero-brand">
+      <strong>BRO MARKETER</strong><br>
+      형이야마케터
+    </p>
 
     <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">
       지금 내 가게, 검색에 뜨는지 보기
     </a>
   </section>
 
+  <!-- PROCESS -->
   <section>
     <h2>
       잘하는 가게는 많습니다.<br>
@@ -196,19 +256,16 @@
         <div class="step-title">구조 정리</div>
         사장님 가게가 검색에 밀린 원인부터 봅니다.
       </div>
-
       <div class="process-card">
         <div class="step-tag">STEP 2</div>
         <div class="step-title">상단 노출</div>
         사장님 가게가 먼저 보이게 만듭니다.
       </div>
-
       <div class="process-card">
         <div class="step-tag">STEP 3</div>
         <div class="step-title">유지</div>
         상단 위치를 계속 유지합니다.
       </div>
-
       <div class="process-card">
         <div class="step-tag">STEP 4</div>
         <div class="step-title">결과</div>
@@ -217,6 +274,7 @@
     </div>
   </section>
 
+  <!-- PROOF -->
   <section>
     <h2>
       말로 설명하지 않습니다.<br>
@@ -224,12 +282,49 @@
     </h2>
     <img src="proof-keyword.png" class="proof-img">
   </section>
+</div>
 
-  <!-- 마지막 내 사진 섹션 -->
+<!-- REVIEW (5개 전부) -->
+<div class="review-section">
+  <div class="wrapper">
+    <h2>검색 결과가 바뀐 뒤<br>현장에서 바로 나온 말들</h2>
+
+    <div class="review">
+      <strong>찔러보기 문의가 아예 없어졌어요.</strong>
+      <span>– PT샵 / 경기</span>
+    </div>
+
+    <div class="review">
+      <strong>가격 얘기 안 하고 예약부터 하더라고요.</strong>
+      <span>– 네일샵 / 경기</span>
+    </div>
+
+    <div class="review">
+      <strong>검색하면 우리 가게만 나온대요.</strong>
+      <span>– 미용실 / 서울</span>
+    </div>
+
+    <div class="review">
+      <strong>상담 없이 바로 결제합니다.</strong>
+      <span>– 학원 / 서울</span>
+    </div>
+
+    <div class="review">
+      <strong>글 보고 이미 믿고 왔다고 합니다.</strong>
+      <span>– 에스테틱 / 경기</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <!-- PROFILE -->
   <section>
     <img src="bro-marketer-real.png" class="profile-img">
 
-    <h3>BRO MARKETER</h3>
+    <p class="profile-brand">
+      <strong>BRO MARKETER</strong><br>
+      형이야마케터
+    </p>
 
     <p>
       직접 매장 운영했고<br>
@@ -246,9 +341,10 @@
   </section>
 </div>
 
+<div class="full-divider"></div>
+
 <div class="rule-section">
   <div class="wrapper">
-
     <p class="rule-small">한 지역 한 업체.</p>
 
     <p class="rule-small">
@@ -265,7 +361,6 @@
     <a href="https://open.kakao.com/o/szijpW8h" class="cta-btn">
       내 지역, 진행 가능한지 바로 확인
     </a>
-
   </div>
 </div>
 
