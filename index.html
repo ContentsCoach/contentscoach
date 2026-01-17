@@ -15,146 +15,168 @@
 
   <style>
     :root {
-      --main-yellow:#FFD400;
-      --text-black:#111111;
-      --text-gray:#444444;
+      --main-yellow: #FFD400;
+      --text-black: #111111;
+      --text-gray: #444444;
     }
 
     body {
-      margin:0;
-      padding:0;
-      font-family:'Pretendard',-apple-system,sans-serif;
-      background:#fff;
-      color:var(--text-black);
-      line-height:1.7;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background-color: #fff;
+      color: var(--text-black);
+      line-height: 1.7;
     }
 
     .wrapper {
-      max-width:600px;
-      margin:0 auto;
-      padding:0 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     section {
-      padding:60px 0;
-      text-align:center;
+      padding: 60px 0;
+      text-align: center;
     }
 
     h1 {
-      font-size:1.9rem;
-      font-weight:900;
-      line-height:1.35;
-      margin-bottom:18px;
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 18px;
     }
 
     h2 {
-      font-size:1.6rem;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-
-    h3 {
-      font-size:1.4rem;
-      font-weight:800;
-      margin-bottom:10px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
     p {
-      font-size:1.05rem;
-      color:var(--text-gray);
-      margin:0 0 18px 0;
+      font-size: 1.05rem;
+      color: var(--text-gray);
+      margin: 0 0 18px 0;
     }
 
     .yellow {
-      background:var(--main-yellow);
-      padding:2px 6px;
-      font-weight:900;
+      background: var(--main-yellow);
+      padding: 2px 6px;
+      font-weight: 900;
     }
 
     .highlight {
-      background:linear-gradient(to top,var(--main-yellow) 45%,transparent 45%);
+      background: linear-gradient(to top, var(--main-yellow) 45%, transparent 45%);
     }
 
     .hero-img {
-      width:100%;
-      max-width:280px;
-      margin:10px auto 6px;
-      display:block;
+      width: 100%;
+      max-width: 280px;
+      margin: 10px auto 6px;
+      display: block;
     }
 
     .cta-btn {
-      display:block;
-      background:var(--main-yellow);
-      color:#111;
-      padding:22px;
-      font-size:1.3rem;
-      font-weight:900;
-      border-radius:15px;
-      text-decoration:none;
-      margin-top:18px;
+      display: block;
+      background: var(--main-yellow);
+      color: #111;
+      padding: 22px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 18px;
     }
 
     .process-container {
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      margin:40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 40px 0;
     }
 
     .process-card {
-      border:2px solid var(--text-black);
-      border-radius:16px;
-      padding:26px 20px;
-      background:#fff;
+      border: 2px solid var(--text-black);
+      border-radius: 16px;
+      padding: 26px 20px;
+      background: #fff;
     }
 
     .step-tag {
-      font-size:.75rem;
-      font-weight:900;
-      background:var(--main-yellow);
-      display:inline-block;
-      padding:3px 10px;
-      margin-bottom:6px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      background: var(--main-yellow);
+      display: inline-block;
+      padding: 3px 10px;
+      margin-bottom: 6px;
     }
 
     .step-title {
-      font-size:1.2rem;
-      font-weight:900;
-      margin-bottom:6px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 6px;
     }
 
-    .underline-yellow {
-      display:inline-block;
-      border-bottom:6px solid var(--main-yellow);
-      padding-bottom:2px;
+    /* ✅ RESULT 형광펜 두께 얇게 */
+    .result-underline {
+      display: inline-block;
+      background: linear-gradient(to top, var(--main-yellow) 28%, transparent 28%);
+      font-weight: 900;
     }
 
     .proof-img {
-      width:100%;
-      border-radius:12px;
-      margin:30px 0;
+      width: 100%;
+      border-radius: 12px;
+      margin: 30px 0;
     }
 
+    /* =========================
+       🔥 증언 패널 (형광펜 인용형)
+       ========================= */
     .review-section {
-      background:#fafafa;
-      padding:80px 0;
+      background: #fafafa;
+      padding: 80px 0;
     }
 
-    .review-card {
-      background:#fff;
-      padding:22px;
-      border-radius:14px;
-      margin-bottom:14px;
-      border-left:6px solid var(--main-yellow);
-      text-align:left;
+    .testimony {
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .testimony strong {
+      display: inline;
+      background: linear-gradient(to top, var(--main-yellow) 26%, transparent 26%);
+      font-weight: 800;
+    }
+
+    .testimony span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
     }
 
     .profile-img {
-      width:100%;
-      max-width:360px;
-      border-radius:14px;
-      margin:0 auto 30px;
-      display:block;
+      width: 100%;
+      max-width: 360px;
+      border-radius: 14px;
+      margin: 0 auto 30px;
+      display: block;
+    }
+
+    /* 구분선 */
+    .divider-section {
+      margin: 80px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .divider-section span {
+      width: 48px;
+      height: 3px;
+      background: #111;
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -210,13 +232,10 @@
         상단 위치를 계속 유지합니다.
       </div>
 
-      <!-- ✅ 수정된 STEP 4 -->
       <div class="process-card">
         <div class="step-tag">STEP 4</div>
         <div class="step-title">결과</div>
-        <span class="underline-yellow">
-          가격 묻지 않고 바로 예약합니다.
-        </span>
+        <span class="result-underline">가격 묻지 않고 바로 예약합니다.</span>
       </div>
     </div>
   </section>
@@ -227,25 +246,43 @@
       말로 설명하지 않습니다.<br>
       <span class="highlight">검색 화면으로 보여드립니다.</span>
     </h2>
-
     <img src="proof-keyword.png" class="proof-img">
   </section>
 </div>
 
-<!-- REVIEW -->
+<!-- TESTIMONY -->
 <div class="review-section">
   <div class="wrapper">
-    <h2>검색 결과가 바뀐 뒤 실제 반응</h2>
+    <h2>검색 결과가 바뀐 뒤<br>현장에서 바로 나온 말들</h2>
 
-    <div class="review-card">“찔러보기 문의가 사라졌습니다.”<br>– PT샵 / 경기</div>
-    <div class="review-card">“가격 얘기 없이 예약부터 묻습니다.”<br>– 네일샵 / 경기</div>
-    <div class="review-card">“검색하면 우리 가게만 나온대요.”<br>– 미용실 / 서울</div>
-    <div class="review-card">“상담 없이 바로 결제합니다.”<br>– 학원 / 서울</div>
-    <div class="review-card">“글 보고 이미 믿고 왔다고 합니다.”<br>– 에스테틱 / 경기</div>
+    <div class="testimony">
+      <strong>찔러보기 문의가 아예 없어졌어요.</strong>
+      <span>– PT샵 / 경기</span>
+    </div>
+
+    <div class="testimony">
+      <strong>가격 얘기 안 하고 예약부터 하더라고요.</strong>
+      <span>– 네일샵 / 경기</span>
+    </div>
+
+    <div class="testimony">
+      <strong>검색하면 우리 가게만 나온대요.</strong>
+      <span>– 미용실 / 서울</span>
+    </div>
+
+    <div class="testimony">
+      <strong>상담 없이 바로 결제합니다.</strong>
+      <span>– 학원 / 서울</span>
+    </div>
+
+    <div class="testimony">
+      <strong>글 보고 이미 믿고 왔다고 합니다.</strong>
+      <span>– 에스테틱 / 경기</span>
+    </div>
   </div>
 </div>
 
-<!-- TRUST + CTA -->
+<!-- DECLARATION -->
 <div class="wrapper">
   <section>
     <img src="bro-marketer-real.png" class="profile-img">
